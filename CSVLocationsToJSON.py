@@ -1,3 +1,13 @@
+'''
+NEEDED
+
+Strip out any quotes
+Split line based on last two commas
+	This allows building names to have commas in the name
+
+'''
+
+
 import sys
 inputFile = open(sys.argv[1])
 inputFile.readline()
