@@ -1,5 +1,6 @@
 import sys
 inputFile = open(sys.argv[1])
+inputFile.readline()
 json = "{"
 for line in inputFile:
 	line = line.split(',')
