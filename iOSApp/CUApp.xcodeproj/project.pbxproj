@@ -8,20 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		7DB998431CE6A16400EE7ECF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB998421CE6A16400EE7ECF /* AppDelegate.swift */; };
-		7DB998451CE6A16400EE7ECF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB998441CE6A16400EE7ECF /* ViewController.swift */; };
 		7DB998481CE6A16400EE7ECF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DB998461CE6A16400EE7ECF /* Main.storyboard */; };
 		7DB9984A1CE6A16400EE7ECF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DB998491CE6A16400EE7ECF /* Assets.xcassets */; };
 		7DB9984D1CE6A16400EE7ECF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DB9984B1CE6A16400EE7ECF /* LaunchScreen.storyboard */; };
+		7DD63DE81D0649C0009BB9C9 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD63DE71D0649C0009BB9C9 /* CollectionViewController.swift */; };
+		7DD63DEA1D0649FD009BB9C9 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD63DE91D0649FD009BB9C9 /* CollectionViewCell.swift */; };
+		7DF67FD01D374075005C32AC /* Desire2Learn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF67FCF1D374075005C32AC /* Desire2Learn.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7DB9983F1CE6A16400EE7ECF /* CUApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CUApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DB998421CE6A16400EE7ECF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7DB998441CE6A16400EE7ECF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7DB998471CE6A16400EE7ECF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7DB998491CE6A16400EE7ECF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7DB9984C1CE6A16400EE7ECF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7DB9984E1CE6A16400EE7ECF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7DD63DE71D0649C0009BB9C9 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionViewController.swift; path = ../CollectionViewController.swift; sourceTree = "<group>"; };
+		7DD63DE91D0649FD009BB9C9 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		7DF67FCF1D374075005C32AC /* Desire2Learn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Desire2Learn.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,9 +58,11 @@
 		7DB998411CE6A16400EE7ECF /* CUApp */ = {
 			isa = PBXGroup;
 			children = (
+				7DD63DE71D0649C0009BB9C9 /* CollectionViewController.swift */,
 				7DB998421CE6A16400EE7ECF /* AppDelegate.swift */,
-				7DB998441CE6A16400EE7ECF /* ViewController.swift */,
 				7DB998461CE6A16400EE7ECF /* Main.storyboard */,
+				7DF67FCF1D374075005C32AC /* Desire2Learn.swift */,
+				7DD63DE91D0649FD009BB9C9 /* CollectionViewCell.swift */,
 				7DB998491CE6A16400EE7ECF /* Assets.xcassets */,
 				7DB9984B1CE6A16400EE7ECF /* LaunchScreen.storyboard */,
 				7DB9984E1CE6A16400EE7ECF /* Info.plist */,
@@ -135,8 +141,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7DB998451CE6A16400EE7ECF /* ViewController.swift in Sources */,
+				7DD63DE81D0649C0009BB9C9 /* CollectionViewController.swift in Sources */,
+				7DF67FD01D374075005C32AC /* Desire2Learn.swift in Sources */,
 				7DB998431CE6A16400EE7ECF /* AppDelegate.swift in Sources */,
+				7DD63DEA1D0649FD009BB9C9 /* CollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +296,7 @@
 				7DB998531CE6A16400EE7ECF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="4La-N7-Sfp">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="b7V-hD-MIm">
+            <objects>
+                <viewController id="cBN-yr-1l2" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QD7-ep-SGH"/>
+                        <viewControllerLayoutGuide type="bottom" id="bGi-M3-caT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dsk-ZB-43H">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HhO-F1-PDT">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="HhO-F1-PDT" firstAttribute="top" secondItem="dsk-ZB-43H" secondAttribute="top" id="BrV-wW-CoR"/>
+                            <constraint firstItem="HhO-F1-PDT" firstAttribute="leading" secondItem="dsk-ZB-43H" secondAttribute="leading" id="Kla-lH-yFU"/>
+                            <constraint firstItem="HhO-F1-PDT" firstAttribute="bottom" secondItem="bGi-M3-caT" secondAttribute="top" id="l08-JQ-sgW"/>
+                            <constraint firstAttribute="trailing" secondItem="HhO-F1-PDT" secondAttribute="trailing" id="qw1-wE-Yll"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MSQ-C0-kuY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="708" y="1022"/>
+        </scene>
+        <!--University of Colorado Boulder-->
+        <scene sceneID="vTC-Hk-zpp">
+            <objects>
+                <collectionViewController id="620-UZ-yKV" customClass="CollectionViewController" customModule="CUApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="mTf-iy-sdw">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="HM8-5i-I5t">
+                            <size key="itemSize" width="102" height="104"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="pVY-UQ-IeU" customClass="CollectionViewCell" customModule="CUApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="102" height="104"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="102" height="104"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V6X-xP-GWs">
+                                            <rect key="frame" x="2" y="2" width="67" height="74"/>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="V6X-xP-GWs" firstAttribute="top" secondItem="pVY-UQ-IeU" secondAttribute="top" constant="2" id="3Cq-yI-9fG"/>
+                                    <constraint firstItem="V6X-xP-GWs" firstAttribute="leading" secondItem="pVY-UQ-IeU" secondAttribute="leading" constant="2" id="GX8-xw-YtL"/>
+                                    <constraint firstAttribute="bottom" secondItem="V6X-xP-GWs" secondAttribute="bottom" constant="2" id="jJn-LZ-5jY"/>
+                                    <constraint firstAttribute="trailing" secondItem="V6X-xP-GWs" secondAttribute="trailing" constant="2" id="mSn-de-Syv"/>
+                                </constraints>
+                                <size key="customSize" width="102" height="104"/>
+                                <connections>
+                                    <outlet property="imageView" destination="V6X-xP-GWs" id="csO-av-LDM"/>
+                                    <segue destination="cBN-yr-1l2" kind="show" identifier="d2l" id="qcF-ps-lHr"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="620-UZ-yKV" id="2pq-If-bZU"/>
+                            <outlet property="delegate" destination="620-UZ-yKV" id="CvU-aL-NbX"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="University of Colorado Boulder" id="oUE-LJ-VMx"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7ie-Yy-FUn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="708" y="319"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="e59-hj-JVz">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4La-N7-Sfp" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FOh-18-Lwl">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="620-UZ-yKV" kind="relationship" relationship="rootViewController" id="zBd-Lp-da8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sR2-Pw-M0A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="708" y="-403"/>
+        </scene>
+    </scenes>
+</document>
