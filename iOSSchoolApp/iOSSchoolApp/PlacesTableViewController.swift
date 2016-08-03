@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PlacesTableViewController: UITableViewController, UISearchResultsUpdating {
+class PlacesTableViewController: UITableViewController, UISearchResultsUpdating, UISearchBarDelegate {
     
     // Object variables
     var placesDict = [String : [String]]()
@@ -19,13 +19,16 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating 
     var filteredNames = [Place]()
     let searchController = UISearchController(searchResultsController: nil)
     
+    
     //-------------
     // viewDidLoad
     //-------------
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        searchController.searchBar.scopeButtonTitles = ["All", "Housing", "Building", "Dining"]
+        searchController.searchBar.delegate = self
+        searchController.hidesNavigationBarDuringPresentation = false
         //--------
         // Navbar
         //--------
@@ -85,6 +88,7 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating 
             place = placesArray[indexPath.row]
         }
         cell.textLabel?.text = place.name
+        cell.detailTextLabel?.text = place.placeType
         
         return cell
     }
@@ -110,9 +114,17 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating 
     
     
     
+//    func filterContentForSearchText(searchText: String, scope: String = "All") {
+//        filteredNames = placesArray.filter { name in
+//            return name.name.lowercaseString.containsString(searchText.lowercaseString)
+//        }
+//        
+//        tableView.reloadData()
+//    }
     func filterContentForSearchText(searchText: String, scope: String = "All") {
-        filteredNames = placesArray.filter { name in
-            return name.name.lowercaseString.containsString(searchText.lowercaseString)
+        filteredNames = placesArray.filter { place in
+            let categoryMatch = (scope == "All") || (place.placeType == scope)
+            return  categoryMatch && place.name.lowercaseString.containsString(searchText.lowercaseString)
         }
         
         tableView.reloadData()
@@ -120,7 +132,14 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating 
     
     
     func updateSearchResultsForSearchController(searchController: UISearchController) {
-        filterContentForSearchText(searchController.searchBar.text!)
+        let searchBar = searchController.searchBar
+        let scope = searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
+        filterContentForSearchText(searchController.searchBar.text!, scope: scope)
+    }
+    
+    
+    func searchBar(searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        filterContentForSearchText(searchBar.text!, scope: searchBar.scopeButtonTitles![selectedScope])
     }
     
     /*

@@ -6,19 +6,13 @@
 	<array>
 		<string>40.006501</string>
 		<string>-105.271668</string>
-		<string></string>
+		<string>Entertainment</string>
 	</array>
 	<key>Norlin Quadrangle</key>
 	<array>
 		<string>40.008392</string>
 		<string>-105.27277</string>
 		<string>Place</string>
-	</array>
-	<key>International Film Series</key>
-	<array>
-		<string>40.008686</string>
-		<string>-105.269198</string>
-		<string></string>
 	</array>
 	<key>Kittredge Commons</key>
 	<array>
@@ -54,7 +48,7 @@
 	<array>
 		<string>40.004798</string>
 		<string>-105.26058</string>
-		<string></string>
+		<string>Entertainment</string>
 	</array>
 	<key>Department of Ecology and Evolutionary Biology</key>
 	<array>
@@ -88,8 +82,8 @@
 	</array>
 	<key>Buckingham Hall</key>
 	<array>
-		<string>40.002744</string>
-		<string>-105.260751</string>
+		<real>40.002744</real>
+		<real>-105.260751</real>
 		<string>Housing</string>
 	</array>
 	<key>Career Services</key>
@@ -136,8 +130,8 @@
 	</array>
 	<key>Laboratory for Atmospheric and Space Physics</key>
 	<array>
-		<string>40.008981</string>
-		<string>-105.247755</string>
+		<real>40.008981</real>
+		<real>-105.247755</real>
 		<string>Building</string>
 	</array>
 	<key>Cockerell Hall</key>
@@ -152,11 +146,11 @@
 		<string>-105.264132</string>
 		<string>Housing</string>
 	</array>
-	<key>Charlotte York Irey Theatre</key>
+	<key>University Theatre</key>
 	<array>
 		<string>40.008218</string>
 		<string>-105.273822</string>
-		<string></string>
+		<string>Building</string>
 	</array>
 	<key>CU Heritage Center (Old Main)</key>
 	<array>
@@ -174,7 +168,7 @@
 	<array>
 		<string>40.008225</string>
 		<string>-105.249105</string>
-		<string>Cafe</string>
+		<string>Dining</string>
 	</array>
 	<key>Fleming Law</key>
 	<array>
@@ -186,7 +180,7 @@
 	<array>
 		<string>40.006719</string>
 		<string>-105.271695</string>
-		<string></string>
+		<string>Dining</string>
 	</array>
 	<key>Department of Applied Mathematics</key>
 	<array>
@@ -216,7 +210,7 @@
 	<array>
 		<string>40.006719</string>
 		<string>-105.271947</string>
-		<string></string>
+		<string>Place</string>
 	</array>
 	<key>Bear Creek Apartments</key>
 	<array>
@@ -258,13 +252,13 @@
 	<array>
 		<string>40.001265</string>
 		<string>-105.262103</string>
-		<string></string>
+		<string>Place</string>
 	</array>
 	<key>ChargePoint Network Charging Station</key>
 	<array>
 		<string>40.001898</string>
 		<string>-105.26246</string>
-		<string></string>
+		<string>Place</string>
 	</array>
 	<key>Museum of Natural History</key>
 	<array>
@@ -306,19 +300,13 @@
 	<array>
 		<string>40.006931</string>
 		<string>-105.271907</string>
-		<string></string>
-	</array>
-	<key>University Theatre</key>
-	<array>
-		<string>40.008256</string>
-		<string>-105.273593</string>
-		<string></string>
+		<string>Place</string>
 	</array>
 	<key>Subway</key>
 	<array>
 		<string>40.006631</string>
 		<string>-105.271078</string>
-		<string></string>
+		<string>Dining</string>
 	</array>
 	<key>Baker Hall</key>
 	<array>
@@ -414,7 +402,7 @@
 	<array>
 		<string>40.003151</string>
 		<string>-105.26213</string>
-		<string></string>
+		<string>Place</string>
 	</array>
 	<key>Continuing Education</key>
 	<array>
@@ -474,7 +462,7 @@
 	<array>
 		<string>40.004476</string>
 		<string>-105.264968</string>
-		<string></string>
+		<string>Building</string>
 	</array>
 	<key>Student Recreation Center</key>
 	<array>
@@ -492,7 +480,7 @@
 	<array>
 		<string>40.006611</string>
 		<string>-105.271137</string>
-		<string></string>
+		<string>Dining</string>
 	</array>
 	<key>Joint Institute for Lab Astrophysics</key>
 	<array>
@@ -540,13 +528,7 @@
 	<array>
 		<string>40.006803</string>
 		<string>-105.261041</string>
-		<string></string>
-	</array>
-	<key>CU Sports Information</key>
-	<array>
-		<string>40.009104</string>
-		<string>-105.268213</string>
-		<string></string>
+		<string>Building</string>
 	</array>
 	<key>Arnett Hall</key>
 	<array>
@@ -576,7 +558,7 @@
 	<array>
 		<string>40.009528</string>
 		<string>-105.266934</string>
-		<string></string>
+		<string>Place</string>
 	</array>
 	<key>Cristol Chemistry and Biochemistry</key>
 	<array>
@@ -584,7 +566,7 @@
 		<string>-105.270981</string>
 		<string>Building</string>
 	</array>
-	<key>Laughing Goat</key>
+	<key>Laughing Goat Cafe</key>
 	<array>
 		<string>40.008918</string>
 		<string>-105.270228</string>
@@ -728,7 +710,7 @@
 		<string>-105.26211</string>
 		<string>Housing</string>
 	</array>
-	<key>Roser Atlas (ATLAS)</key>
+	<key>Roser Atlas</key>
 	<array>
 		<string>40.007677</string>
 		<string>-105.26986</string>
