@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  iOSCampusApp
+//  iOSSchoolApp
 //
-//  Created by Jessie Albarian on 7/16/16.
+//  Created by Jessie Albarian on 7/28/16.
 //  Copyright © 2016 LittleBirdStudios. All rights reserved.
 //
 

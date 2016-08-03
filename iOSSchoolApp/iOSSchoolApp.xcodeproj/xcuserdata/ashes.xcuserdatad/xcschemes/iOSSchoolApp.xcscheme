@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7D11499D1D3B335200A1228A"
-               BuildableName = "iOSCampusApp.app"
-               BlueprintName = "iOSCampusApp"
-               ReferencedContainer = "container:iOSCampusApp.xcodeproj">
+               BlueprintIdentifier = "7DF2EF631D4AEA2F001CE6DE"
+               BuildableName = "iOSSchoolApp.app"
+               BlueprintName = "iOSSchoolApp"
+               ReferencedContainer = "container:iOSSchoolApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7D11499D1D3B335200A1228A"
-            BuildableName = "iOSCampusApp.app"
-            BlueprintName = "iOSCampusApp"
-            ReferencedContainer = "container:iOSCampusApp.xcodeproj">
+            BlueprintIdentifier = "7DF2EF631D4AEA2F001CE6DE"
+            BuildableName = "iOSSchoolApp.app"
+            BlueprintName = "iOSSchoolApp"
+            ReferencedContainer = "container:iOSSchoolApp.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -55,10 +55,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7D11499D1D3B335200A1228A"
-            BuildableName = "iOSCampusApp.app"
-            BlueprintName = "iOSCampusApp"
-            ReferencedContainer = "container:iOSCampusApp.xcodeproj">
+            BlueprintIdentifier = "7DF2EF631D4AEA2F001CE6DE"
+            BuildableName = "iOSSchoolApp.app"
+            BlueprintName = "iOSSchoolApp"
+            ReferencedContainer = "container:iOSSchoolApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -74,10 +74,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7D11499D1D3B335200A1228A"
-            BuildableName = "iOSCampusApp.app"
-            BlueprintName = "iOSCampusApp"
-            ReferencedContainer = "container:iOSCampusApp.xcodeproj">
+            BlueprintIdentifier = "7DF2EF631D4AEA2F001CE6DE"
+            BuildableName = "iOSSchoolApp.app"
+            BlueprintName = "iOSSchoolApp"
+            ReferencedContainer = "container:iOSSchoolApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

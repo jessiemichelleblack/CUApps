@@ -1,0 +1,756 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>The Connection Bowling, Billards and Games</key>
+	<array>
+		<string>40.006501</string>
+		<string>-105.271668</string>
+		<string></string>
+	</array>
+	<key>Norlin Quadrangle</key>
+	<array>
+		<string>40.008392</string>
+		<string>-105.27277</string>
+		<string>Place</string>
+	</array>
+	<key>International Film Series</key>
+	<array>
+		<string>40.008686</string>
+		<string>-105.269198</string>
+		<string></string>
+	</array>
+	<key>Kittredge Commons</key>
+	<array>
+		<string>40.002857</string>
+		<string>-105.263125</string>
+		<string>Place</string>
+	</array>
+	<key>Darley North Hall</key>
+	<array>
+		<string>39.99933</string>
+		<string>-105.252164</string>
+		<string>Housing</string>
+	</array>
+	<key>Mary Rippon Outdoor Theatre</key>
+	<array>
+		<string>40.007259</string>
+		<string>-105.272776</string>
+		<string>Building</string>
+	</array>
+	<key>Earth Science and Observation Center</key>
+	<array>
+		<string>40.008</string>
+		<string>-105.271939</string>
+		<string>Building</string>
+	</array>
+	<key>Visual Arts Complex</key>
+	<array>
+		<string>40.007683</string>
+		<string>-105.270533</string>
+		<string>Building</string>
+	</array>
+	<key>Coors Events Center</key>
+	<array>
+		<string>40.004798</string>
+		<string>-105.26058</string>
+		<string></string>
+	</array>
+	<key>Department of Ecology and Evolutionary Biology</key>
+	<array>
+		<string>40.008979</string>
+		<string>-105.269664</string>
+		<string>Building</string>
+	</array>
+	<key>Program Council</key>
+	<array>
+		<string>40.007093</string>
+		<string>-105.27199</string>
+		<string>Building</string>
+	</array>
+	<key>Hellems Lawn</key>
+	<array>
+		<string>40.007997</string>
+		<string>-105.272494</string>
+		<string>Place</string>
+	</array>
+	<key>Trep Cafe</key>
+	<array>
+		<string>40.006036</string>
+		<string>-105.263568</string>
+		<string>Cafe</string>
+	</array>
+	<key>College of Music</key>
+	<array>
+		<string>40.006225</string>
+		<string>-105.268994</string>
+		<string>Building</string>
+	</array>
+	<key>Buckingham Hall</key>
+	<array>
+		<string>40.002744</string>
+		<string>-105.260751</string>
+		<string>Housing</string>
+	</array>
+	<key>Career Services</key>
+	<array>
+		<string>40.004542</string>
+		<string>-105.265156</string>
+		<string>Building</string>
+	</array>
+	<key>Imig Music Building</key>
+	<array>
+		<string>40.006079</string>
+		<string>-105.268983</string>
+		<string>Building</string>
+	</array>
+	<key>GOLD Biosciences (MCDB)</key>
+	<array>
+		<string>40.008726</string>
+		<string>-105.268197</string>
+		<string>Building</string>
+	</array>
+	<key>Macky Auditorium</key>
+	<array>
+		<string>40.010127</string>
+		<string>-105.272792</string>
+		<string>Building</string>
+	</array>
+	<key>Cheyenne Arapaho Hall</key>
+	<array>
+		<string>40.005266</string>
+		<string>-105.267851</string>
+		<string>Housing</string>
+	</array>
+	<key>Kittredge Lake</key>
+	<array>
+		<string>40.002767</string>
+		<string>-105.261347</string>
+		<string>Place</string>
+	</array>
+	<key>Department of Communication</key>
+	<array>
+		<string>40.007689</string>
+		<string>-105.272626</string>
+		<string>Building</string>
+	</array>
+	<key>Laboratory for Atmospheric and Space Physics</key>
+	<array>
+		<string>40.008981</string>
+		<string>-105.247755</string>
+		<string>Building</string>
+	</array>
+	<key>Cockerell Hall</key>
+	<array>
+		<string>40.006855</string>
+		<string>-105.264523</string>
+		<string>Housing</string>
+	</array>
+	<key>Kittredge West Hall</key>
+	<array>
+		<string>40.002834</string>
+		<string>-105.264132</string>
+		<string>Housing</string>
+	</array>
+	<key>Charlotte York Irey Theatre</key>
+	<array>
+		<string>40.008218</string>
+		<string>-105.273822</string>
+		<string></string>
+	</array>
+	<key>CU Heritage Center (Old Main)</key>
+	<array>
+		<string>40.009284</string>
+		<string>-105.27335</string>
+		<string>Building</string>
+	</array>
+	<key>Department of Computer Science</key>
+	<array>
+		<string>40.006669</string>
+		<string>-105.263686</string>
+		<string>Building</string>
+	</array>
+	<key>Etai&apos;s Bakery Cafe</key>
+	<array>
+		<string>40.008225</string>
+		<string>-105.249105</string>
+		<string>Cafe</string>
+	</array>
+	<key>Fleming Law</key>
+	<array>
+		<string>40.002041</string>
+		<string>-105.263861</string>
+		<string>Building</string>
+	</array>
+	<key>Celestial Seasonings Cafe</key>
+	<array>
+		<string>40.006719</string>
+		<string>-105.271695</string>
+		<string></string>
+	</array>
+	<key>Department of Applied Mathematics</key>
+	<array>
+		<string>40.007349</string>
+		<string>-105.263181</string>
+		<string>Building</string>
+	</array>
+	<key>Farrand Hall</key>
+	<array>
+		<string>40.006077</string>
+		<string>-105.265806</string>
+		<string>Housing</string>
+	</array>
+	<key>Regent Administrative Center</key>
+	<array>
+		<string>40.00449</string>
+		<string>-105.267045</string>
+		<string>Building</string>
+	</array>
+	<key>Office of Admissions</key>
+	<array>
+		<string>40.004438</string>
+		<string>-105.266929</string>
+		<string>Building</string>
+	</array>
+	<key>Elevations Credit Union</key>
+	<array>
+		<string>40.006719</string>
+		<string>-105.271947</string>
+		<string></string>
+	</array>
+	<key>Bear Creek Apartments</key>
+	<array>
+		<string>39.996903</string>
+		<string>-105.249832</string>
+		<string>Housing</string>
+	</array>
+	<key>Crosman Hall</key>
+	<array>
+		<string>40.006364</string>
+		<string>-105.264769</string>
+		<string>Housing</string>
+	</array>
+	<key>Business Field</key>
+	<array>
+		<string>40.00574</string>
+		<string>-105.262201</string>
+		<string>Place</string>
+	</array>
+	<key>Journalism and Mass Communication</key>
+	<array>
+		<string>40.011054</string>
+		<string>-105.273948</string>
+		<string>Building</string>
+	</array>
+	<key>Sewall Field</key>
+	<array>
+		<string>40.009906</string>
+		<string>-105.271283</string>
+		<string>Place</string>
+	</array>
+	<key>WeatherTech Cafe</key>
+	<array>
+		<string>40.004627</string>
+		<string>-105.264458</string>
+		<string>Cafe</string>
+	</array>
+	<key>William A. Wise Law Library</key>
+	<array>
+		<string>40.001265</string>
+		<string>-105.262103</string>
+		<string></string>
+	</array>
+	<key>ChargePoint Network Charging Station</key>
+	<array>
+		<string>40.001898</string>
+		<string>-105.26246</string>
+		<string></string>
+	</array>
+	<key>Museum of Natural History</key>
+	<array>
+		<string>40.007027</string>
+		<string>-105.272757</string>
+		<string>Building</string>
+	</array>
+	<key>Art Museum</key>
+	<array>
+		<string>40.007349</string>
+		<string>-105.269868</string>
+		<string>Building</string>
+	</array>
+	<key>University Club</key>
+	<array>
+		<string>40.005443</string>
+		<string>-105.270659</string>
+		<string>Building</string>
+	</array>
+	<key>Speech, Language, and Hearing Center</key>
+	<array>
+		<string>40.003976</string>
+		<string>-105.262511</string>
+		<string>Building</string>
+	</array>
+	<key>Ketchum Arts and Sciences</key>
+	<array>
+		<string>40.008168</string>
+		<string>-105.270241</string>
+		<string>Building</string>
+	</array>
+	<key>Hallett Hall</key>
+	<array>
+		<string>40.005031</string>
+		<string>-105.265001</string>
+		<string>Housing</string>
+	</array>
+	<key>Book Store</key>
+	<array>
+		<string>40.006931</string>
+		<string>-105.271907</string>
+		<string></string>
+	</array>
+	<key>University Theatre</key>
+	<array>
+		<string>40.008256</string>
+		<string>-105.273593</string>
+		<string></string>
+	</array>
+	<key>Subway</key>
+	<array>
+		<string>40.006631</string>
+		<string>-105.271078</string>
+		<string></string>
+	</array>
+	<key>Baker Hall</key>
+	<array>
+		<string>40.006925</string>
+		<string>-105.267835</string>
+		<string>Housing</string>
+	</array>
+	<key>Engineering Quadrangle</key>
+	<array>
+		<string>40.006803</string>
+		<string>-105.264971</string>
+		<string>Place</string>
+	</array>
+	<key>Stearns West Hall</key>
+	<array>
+		<string>39.998246</string>
+		<string>-105.252211</string>
+		<string>Housing</string>
+	</array>
+	<key>Guggenheim Geography</key>
+	<array>
+		<string>40.008215</string>
+		<string>-105.274244</string>
+		<string>Building</string>
+	</array>
+	<key>Brackett Hall</key>
+	<array>
+		<string>40.007157</string>
+		<string>-105.264948</string>
+		<string>Housing</string>
+	</array>
+	<key>School of Law</key>
+	<array>
+		<string>40.001323</string>
+		<string>-105.262414</string>
+		<string>Building</string>
+	</array>
+	<key>Hale Science</key>
+	<array>
+		<string>40.009238</string>
+		<string>-105.274958</string>
+		<string>Building</string>
+	</array>
+	<key>Loft Theatre</key>
+	<array>
+		<string>40.008183</string>
+		<string>-105.273398</string>
+		<string>Building</string>
+	</array>
+	<key>Kittredge Fields</key>
+	<array>
+		<string>40.002299</string>
+		<string>-105.259481</string>
+		<string>Place</string>
+	</array>
+	<key>Leeds School of Business (Koelbel)</key>
+	<array>
+		<string>40.005658</string>
+		<string>-105.263452</string>
+		<string>Building</string>
+	</array>
+	<key>Wardenburg Health Services</key>
+	<array>
+		<string>40.005372</string>
+		<string>-105.268904</string>
+		<string>Building</string>
+	</array>
+	<key>Ekeley Sciences</key>
+	<array>
+		<string>40.008203</string>
+		<string>-105.271794</string>
+		<string>Building</string>
+	</array>
+	<key>University Memorial Center (UMC)</key>
+	<array>
+		<string>40.006919</string>
+		<string>-105.27162</string>
+		<string>Building</string>
+	</array>
+	<key>Grusin Music Hall</key>
+	<array>
+		<string>40.005949</string>
+		<string>-105.269037</string>
+		<string>Building</string>
+	</array>
+	<key>Department of Civil, Environmental, and Architectural Engineering</key>
+	<array>
+		<string>40.007035</string>
+		<string>-105.262811</string>
+		<string>Building</string>
+	</array>
+	<key>The UPS Store</key>
+	<array>
+		<string>40.003151</string>
+		<string>-105.26213</string>
+		<string></string>
+	</array>
+	<key>Continuing Education</key>
+	<array>
+		<string>40.010844</string>
+		<string>-105.274361</string>
+		<string>Building</string>
+	</array>
+	<key>Darley South Hall</key>
+	<array>
+		<string>39.9989</string>
+		<string>-105.251633</string>
+		<string>Housing</string>
+	</array>
+	<key>Theatre and Dance</key>
+	<array>
+		<string>40.008154</string>
+		<string>-105.273677</string>
+		<string>Building</string>
+	</array>
+	<key>School of Education</key>
+	<array>
+		<string>40.007378</string>
+		<string>-105.273605</string>
+		<string>Building</string>
+	</array>
+	<key>Eaton Humanities</key>
+	<array>
+		<string>40.009267</string>
+		<string>-105.27184</string>
+		<string>Building</string>
+	</array>
+	<key>Andrews Hall</key>
+	<array>
+		<string>40.003072</string>
+		<string>-105.262228</string>
+		<string>Housing</string>
+	</array>
+	<key>Engebretson&apos;s Quadrangle</key>
+	<array>
+		<string>40.005975</string>
+		<string>-105.264177</string>
+		<string>Place</string>
+	</array>
+	<key>Institute of Behavorial Science</key>
+	<array>
+		<string>40.011359</string>
+		<string>-105.274436</string>
+		<string>Building</string>
+	</array>
+	<key>Department of Mathematics</key>
+	<array>
+		<string>40.007782</string>
+		<string>-105.264565</string>
+		<string>Building</string>
+	</array>
+	<key>Center for Community (C4C)</key>
+	<array>
+		<string>40.004476</string>
+		<string>-105.264968</string>
+		<string></string>
+	</array>
+	<key>Student Recreation Center</key>
+	<array>
+		<string>40.010287</string>
+		<string>-105.269388</string>
+		<string>Building</string>
+	</array>
+	<key>Duane Physics and Astrophysics</key>
+	<array>
+		<string>40.008198</string>
+		<string>-105.267844</string>
+		<string>Building</string>
+	</array>
+	<key>Panda Express</key>
+	<array>
+		<string>40.006611</string>
+		<string>-105.271137</string>
+		<string></string>
+	</array>
+	<key>Joint Institute for Lab Astrophysics</key>
+	<array>
+		<string>40.007509</string>
+		<string>-105.268667</string>
+		<string>Building</string>
+	</array>
+	<key>Norlin Commons</key>
+	<array>
+		<string>40.008597</string>
+		<string>-105.270212</string>
+		<string>Place</string>
+	</array>
+	<key>Williams Village</key>
+	<array>
+		<string>39.998254</string>
+		<string>-105.251007</string>
+		<string>Housing</string>
+	</array>
+	<key>Balch Fieldhouse</key>
+	<array>
+		<string>40.009499</string>
+		<string>-105.267908</string>
+		<string>Building</string>
+	</array>
+	<key>Telecommunications Center</key>
+	<array>
+		<string>40.006675</string>
+		<string>-105.263074</string>
+		<string>Building</string>
+	</array>
+	<key>Muenzinger Psychology</key>
+	<array>
+		<string>40.008517</string>
+		<string>-105.268933</string>
+		<string>Building</string>
+	</array>
+	<key>Stearns East Hall</key>
+	<array>
+		<string>39.997996</string>
+		<string>-105.252412</string>
+		<string>Housing</string>
+	</array>
+	<key>Parking Services</key>
+	<array>
+		<string>40.006803</string>
+		<string>-105.261041</string>
+		<string></string>
+	</array>
+	<key>CU Sports Information</key>
+	<array>
+		<string>40.009104</string>
+		<string>-105.268213</string>
+		<string></string>
+	</array>
+	<key>Arnett Hall</key>
+	<array>
+		<string>40.003415</string>
+		<string>-105.261113</string>
+		<string>Housing</string>
+	</array>
+	<key>Department of Anthropology</key>
+	<array>
+		<string>40.009255</string>
+		<string>-105.274978</string>
+		<string>Building</string>
+	</array>
+	<key>Kittredge Central</key>
+	<array>
+		<string>40.002758</string>
+		<string>-105.263135</string>
+		<string>Housing</string>
+	</array>
+	<key>Geography Department</key>
+	<array>
+		<string>40.008212</string>
+		<string>-105.274216</string>
+		<string>Building</string>
+	</array>
+	<key>Folsom Stadium</key>
+	<array>
+		<string>40.009528</string>
+		<string>-105.266934</string>
+		<string></string>
+	</array>
+	<key>Cristol Chemistry and Biochemistry</key>
+	<array>
+		<string>40.007712</string>
+		<string>-105.270981</string>
+		<string>Building</string>
+	</array>
+	<key>Laughing Goat</key>
+	<array>
+		<string>40.008918</string>
+		<string>-105.270228</string>
+		<string>Cafe</string>
+	</array>
+	<key>Benson Earth Sciences</key>
+	<array>
+		<string>40.008009</string>
+		<string>-105.265958</string>
+		<string>Building</string>
+	</array>
+	<key>Department of Mechanical Engineering</key>
+	<array>
+		<string>40.007666</string>
+		<string>-105.263753</string>
+		<string>Building</string>
+	</array>
+	<key>Ramaley Biology</key>
+	<array>
+		<string>40.008784</string>
+		<string>-105.269695</string>
+		<string>Building</string>
+	</array>
+	<key>Economics Department</key>
+	<array>
+		<string>40.007884</string>
+		<string>-105.274559</string>
+		<string>Building</string>
+	</array>
+	<key>Department of Electrical, Computer, and Energy Engineering</key>
+	<array>
+		<string>40.00759</string>
+		<string>-105.262637</string>
+		<string>Building</string>
+	</array>
+	<key>McKenna Languages</key>
+	<array>
+		<string>40.009761</string>
+		<string>-105.273638</string>
+		<string>Building</string>
+	</array>
+	<key>Discovery Learning Center</key>
+	<array>
+		<string>40.007677</string>
+		<string>-105.261779</string>
+		<string>Building</string>
+	</array>
+	<key>Cooperative Institute for Research in Environmental Sciences</key>
+	<array>
+		<string>40.008049</string>
+		<string>-105.271596</string>
+		<string>Building</string>
+	</array>
+	<key>Museum Collections</key>
+	<array>
+		<string>40.007558</string>
+		<string>-105.274132</string>
+		<string>Building</string>
+	</array>
+	<key>Fiske Planetarium and Science Center</key>
+	<array>
+		<string>40.003578</string>
+		<string>-105.26345</string>
+		<string>Building</string>
+	</array>
+	<key>Norlin Library</key>
+	<array>
+		<string>40.00879</string>
+		<string>-105.270965</string>
+		<string>Building</string>
+	</array>
+	<key>Pekoe Sip House</key>
+	<array>
+		<string>40.00784</string>
+		<string>-105.269927</string>
+		<string>Cafe</string>
+	</array>
+	<key>Muenzinger Auditorium</key>
+	<array>
+		<string>40.00877</string>
+		<string>-105.268991</string>
+		<string>Building</string>
+	</array>
+	<key>Engineering Center</key>
+	<array>
+		<string>40.007268</string>
+		<string>-105.263387</string>
+		<string>Building</string>
+	</array>
+	<key>Environmental Studies Program</key>
+	<array>
+		<string>40.010894</string>
+		<string>-105.273575</string>
+		<string>Building</string>
+	</array>
+	<key>Hellems Arts and Sciences</key>
+	<array>
+		<string>40.007704</string>
+		<string>-105.27277</string>
+		<string>Building</string>
+	</array>
+	<key>Aden Hall</key>
+	<array>
+		<string>40.006884</string>
+		<string>-105.265393</string>
+		<string>Housing</string>
+	</array>
+	<key>Reed Hall</key>
+	<array>
+		<string>40.005719</string>
+		<string>-105.264775</string>
+		<string>Housing</string>
+	</array>
+	<key>Sewall Hall</key>
+	<array>
+		<string>40.010615</string>
+		<string>-105.271197</string>
+		<string>Housing</string>
+	</array>
+	<key>Willard Hall</key>
+	<array>
+		<string>40.005254</string>
+		<string>-105.266269</string>
+		<string>Housing</string>
+	</array>
+	<key>Idea Forge</key>
+	<array>
+		<string>40.001939</string>
+		<string>-105.262886</string>
+		<string>Building</string>
+	</array>
+	<key>Department of Physics</key>
+	<array>
+		<string>40.008009</string>
+		<string>-105.26736</string>
+		<string>Building</string>
+	</array>
+	<key>Smith Hall</key>
+	<array>
+		<string>40.002195</string>
+		<string>-105.26211</string>
+		<string>Housing</string>
+	</array>
+	<key>Roser Atlas (ATLAS)</key>
+	<array>
+		<string>40.007677</string>
+		<string>-105.26986</string>
+		<string>Building</string>
+	</array>
+	<key>Environmental Design</key>
+	<array>
+		<string>40.007064</string>
+		<string>-105.269254</string>
+		<string>Building</string>
+	</array>
+	<key>Libby Hall</key>
+	<array>
+		<string>40.006934</string>
+		<string>-105.266403</string>
+		<string>Housing</string>
+	</array>
+	<key>Sommers Bausch Observatory</key>
+	<array>
+		<string>40.003645</string>
+		<string>-105.26298</string>
+		<string>Building</string>
+	</array>
+</dict>
+</plist>
