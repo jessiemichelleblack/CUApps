@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "444231178568",
+    "firebase_url": "https://cuapp-5d360.firebaseio.com",
+    "project_id": "cuapp-5d360",
+    "storage_bucket": "cuapp-5d360.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:444231178568:android:43da53a1619e15e8",
+        "android_client_info": {
+          "package_name": "com.example.michaelswisher.schoolapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "444231178568-isc57voio6viu2t9p4m8gjvi6t23261d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChiBORpy3QdTVMj1rPiTCK4KmjTvWDpA8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
