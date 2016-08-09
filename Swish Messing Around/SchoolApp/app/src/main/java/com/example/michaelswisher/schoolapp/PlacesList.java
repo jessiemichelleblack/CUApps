@@ -1,5 +1,7 @@
 package com.example.michaelswisher.schoolapp;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.SearchView;
@@ -17,6 +19,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class PlacesList extends AppCompatActivity {
 
@@ -83,7 +86,12 @@ public class PlacesList extends AppCompatActivity {
             {
                 String value = (String)adapter.getItemAtPosition(position);
                 ArrayList<String> valueSet = (ArrayList<String>) placesContainer.get(value);
-                System.out.println(valueSet.get(0));
+                String mapsQuery = String.format("geo:0,0?q=%s,%s (%s)", valueSet.get(0), valueSet.get(1), value);
+                System.out.println(mapsQuery);
+                Uri gmmIntentUri = Uri.parse(mapsQuery);
+                Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                mapIntent.setPackage("com.google.android.apps.maps");
+                startActivity(mapIntent);
             }
         });
     }
