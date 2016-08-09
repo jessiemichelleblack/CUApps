@@ -110,6 +110,10 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
             detailVC.title = placesArray[indexPath.row].name
             detailVC.placesDetail = placesArray
             detailVC.selectedPlace = indexPath.row
+        } else if segue.identifier == "moodle" {
+            let vc = segue.destinationViewController as UIViewController
+            vc.navigationItem.title = "Moodle"
+            navigationItem.title = "Home"
         }
     }
     

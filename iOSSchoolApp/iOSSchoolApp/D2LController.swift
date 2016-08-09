@@ -19,6 +19,10 @@ class D2LController: UIViewController {
         let requestObj = NSURLRequest(URL: url!);
         webView.loadRequest(requestObj);
         
+        // Get rid of extra space above webview
+        self.automaticallyAdjustsScrollViewInsets = false
+        
+        // Nav bar
         navigationController?.navigationBar.topItem?.title = "D2L"
         navigationController?.navigationBar.barTintColor = UIColor.blackColor()
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]

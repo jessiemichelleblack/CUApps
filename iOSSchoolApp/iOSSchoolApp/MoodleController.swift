@@ -19,7 +19,9 @@ class MoodleController: UIViewController {
         let requestObj = NSURLRequest(URL: url!);
         webView.loadRequest(requestObj);
         
-        navigationController?.navigationBar.topItem?.title = "Moodle"
+        // Get rid of extra space above webview
+        self.automaticallyAdjustsScrollViewInsets = false
+        
         navigationController?.navigationBar.barTintColor = UIColor.blackColor()
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
     }

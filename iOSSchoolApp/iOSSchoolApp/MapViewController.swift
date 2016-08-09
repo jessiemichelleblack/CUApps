@@ -18,6 +18,29 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     var places = [String]()
     var placesDetail = [Place]()
     
+    let latString : String = ""
+    let longString : String = ""
+
+    
+    @IBAction func getDirections(sender: AnyObject) {
+//        if (UIApplication.sharedApplication().canOpenURL(NSURL(string:"comgooglemaps://")!)) {
+//            UIApplication.sharedApplication().openURL(NSURL(string:
+//                "comgooglemaps://?center=" + latString + "," + longString + "&zoom=14&views=traffic")!)
+//        } else {
+//            print("Can't use comgooglemaps://");
+//        }
+        let customURL = "comgooglemaps://"
+        if UIApplication.sharedApplication().canOpenURL(NSURL(string: customURL)!) {
+            UIApplication.sharedApplication().openURL(NSURL(string: customURL)!)
+        }
+        else {
+            let alert = UIAlertController(title: "Error", message: "Google maps not installed", preferredStyle: UIAlertControllerStyle.Alert)
+            let ok = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil)
+            alert.addAction(ok)
+            self.presentViewController(alert, animated:true, completion: nil)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -90,13 +113,17 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
 //        places = placesListDetail.placesData[chosenPlace]! as! [AnyObject]
 //        places = placesListDetail.placesData[chosenPlace]! as! [String]
         
+        let lat = CLLocationDegrees(placesDetail[selectedPlace].latCoordinate)
+        let long = CLLocationDegrees(placesDetail[selectedPlace].longCoordinate)
+        let latString = placesDetail[selectedPlace].latCoordinate
+        let longString = placesDetail[selectedPlace].longCoordinate
         
         //-----------
         // Setup Map
         //-----------
         let location = CLLocationCoordinate2D(
-            latitude: CLLocationDegrees(placesDetail[selectedPlace].latCoordinate)!,
-            longitude: CLLocationDegrees(placesDetail[selectedPlace].longCoordinate)!
+            latitude: lat!,
+            longitude: long!
         )
         let span = MKCoordinateSpanMake(0.01, 0.01)
         let region = MKCoordinateRegion(center: location, span: span)
