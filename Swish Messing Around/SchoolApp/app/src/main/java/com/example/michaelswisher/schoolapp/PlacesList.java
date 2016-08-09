@@ -15,16 +15,22 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class PlacesList extends AppCompatActivity {
 
     ListView listview;
     SearchView searchview;
-    public List<String> placesList = new ArrayList<String>();
+    List<String> placesList = new ArrayList<String>();
     ArrayAdapter<String> adapter;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     final DatabaseReference myRef = database.getReference("places");
+
+    HashMap placesContainer = new HashMap();
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +50,8 @@ public class PlacesList extends AppCompatActivity {
                         for (DataSnapshot messageSnapshot: dataSnapshot.getChildren()) {
                             String placeName = messageSnapshot.getKey();
                             placesList.add(placeName);
+                            ArrayList<String> placeValues = (ArrayList<String>) messageSnapshot.getValue();
+                            placesContainer.put(placeName, placeValues);
                         }
                         adapter.notifyDataSetChanged();
                     }
@@ -74,9 +82,8 @@ public class PlacesList extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapter, View v, int position, long arg3)
             {
                 String value = (String)adapter.getItemAtPosition(position);
-                System.out.println(myRef.child(value).getKey());
-                // assuming string and if you want to get the value on click of list item
-                // do what you intend to do on click of listview row
+                ArrayList<String> valueSet = (ArrayList<String>) placesContainer.get(value);
+                System.out.println(valueSet.get(0));
             }
         });
     }
