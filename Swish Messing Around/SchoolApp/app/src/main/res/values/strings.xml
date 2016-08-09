@@ -5,6 +5,7 @@
         <item>Places</item>
         <item>Dining</item>
         <item>Parking</item>
+        <item>MyCUInfo</item>
     </string-array>
     <string name="title_activity_maps">Map</string>
 </resources>
