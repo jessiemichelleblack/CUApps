@@ -18,6 +18,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="2Cz-Jp-gAc">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XAC-ur-c0e">
+                                <rect key="frame" x="277" y="101" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="60i-Hy-E4W"/>
+                                </constraints>
+                                <state key="normal" title="D2L"/>
+                                <connections>
+                                    <segue destination="MO9-Iq-cYl" kind="show" id="VSE-LY-Sa9"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HA0-En-7hM">
                                 <rect key="frame" x="101" y="101" width="46" height="30"/>
                                 <constraints>
@@ -28,11 +41,29 @@
                                     <segue destination="HNd-qA-gLc" kind="show" id="u5y-Wz-P2x"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Aw-dG-cTV">
+                                <rect key="frame" x="436" y="101" width="99" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="99" id="wi1-1G-bqM"/>
+                                </constraints>
+                                <state key="normal" title="Moodle"/>
+                                <connections>
+                                    <segue destination="KAd-Zw-02k" kind="show" id="CwT-Ne-8gE"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="HA0-En-7hM" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="37" id="407-3K-c53"/>
+                            <constraint firstItem="2Cz-Jp-gAc" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="5nM-cj-roR"/>
+                            <constraint firstItem="XAC-ur-c0e" firstAttribute="baseline" secondItem="7Aw-dG-cTV" secondAttribute="baseline" id="GgC-5d-WMX"/>
                             <constraint firstItem="HA0-En-7hM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="81" id="P3l-so-mTW"/>
+                            <constraint firstItem="XAC-ur-c0e" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Udw-PR-UEf"/>
+                            <constraint firstItem="2Cz-Jp-gAc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="VfG-S1-jyn"/>
+                            <constraint firstItem="2Cz-Jp-gAc" firstAttribute="centerX" secondItem="XAC-ur-c0e" secondAttribute="centerX" id="XwO-eS-fPc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7Aw-dG-cTV" secondAttribute="trailing" constant="45" id="a5i-b3-wSV"/>
+                            <constraint firstItem="2Cz-Jp-gAc" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="nlq-EP-9Tk"/>
+                            <constraint firstItem="XAC-ur-c0e" firstAttribute="baseline" secondItem="HA0-En-7hM" secondAttribute="baseline" id="vug-YM-FXf"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="6KV-An-hFD"/>
@@ -40,6 +71,72 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1192" y="317"/>
+        </scene>
+        <!--Controller-->
+        <scene sceneID="hYy-w4-kHp">
+            <objects>
+                <viewController id="MO9-Iq-cYl" customClass="D2LController" customModule="iOSSchoolApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4lA-a4-rIt"/>
+                        <viewControllerLayoutGuide type="bottom" id="hhf-A0-aXY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="t1C-We-UoD">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UmF-gx-lAs">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="UmF-gx-lAs" firstAttribute="bottom" secondItem="hhf-A0-aXY" secondAttribute="top" id="H5p-UN-FQ0"/>
+                            <constraint firstItem="UmF-gx-lAs" firstAttribute="top" secondItem="4lA-a4-rIt" secondAttribute="bottom" id="bfx-gQ-9i9"/>
+                            <constraint firstAttribute="trailing" secondItem="UmF-gx-lAs" secondAttribute="trailing" id="v11-2S-bNx"/>
+                            <constraint firstItem="UmF-gx-lAs" firstAttribute="leading" secondItem="t1C-We-UoD" secondAttribute="leading" id="yON-zJ-9ct"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="UmF-gx-lAs" id="6rC-0o-Lh5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sh5-Qz-k5q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1888" y="505"/>
+        </scene>
+        <!--Moodle Controller-->
+        <scene sceneID="FeI-CY-Vgl">
+            <objects>
+                <viewController id="KAd-Zw-02k" customClass="MoodleController" customModule="iOSSchoolApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jN0-Lx-ekO"/>
+                        <viewControllerLayoutGuide type="bottom" id="IEF-wL-lqk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ff1-Ex-7ip">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eLQ-wu-ebP">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="eLQ-wu-ebP" secondAttribute="trailing" id="5Ge-Vv-gGs"/>
+                            <constraint firstItem="eLQ-wu-ebP" firstAttribute="top" secondItem="jN0-Lx-ekO" secondAttribute="bottom" id="mkV-A2-Gsr"/>
+                            <constraint firstItem="eLQ-wu-ebP" firstAttribute="bottom" secondItem="IEF-wL-lqk" secondAttribute="top" id="o3Z-sr-2ws"/>
+                            <constraint firstItem="eLQ-wu-ebP" firstAttribute="leading" secondItem="ff1-Ex-7ip" secondAttribute="leading" id="oGd-gg-m5o"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="eLQ-wu-ebP" id="nuD-Gn-hSa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uZn-3s-66w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1888" y="1155"/>
         </scene>
         <!--Places Table View Controller-->
         <scene sceneID="aLP-Io-5Ws">
@@ -83,7 +180,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuH-bY-Rac" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1848" y="-140"/>
+            <point key="canvasLocation" x="1888" y="-167"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="Xe3-y7-I9l">
@@ -149,4 +246,7 @@
             <point key="canvasLocation" x="500" y="317"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="background" width="1080" height="1920"/>
+    </resources>
 </document>

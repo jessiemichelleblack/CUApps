@@ -34,6 +34,8 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
         //--------
         navigationController?.navigationBar.topItem?.title = "Places"
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.Plain, target:nil, action:nil)
+        navigationController?.navigationBar.barTintColor = UIColor.blackColor()
+        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         
         
         //------------
@@ -43,6 +45,7 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
+        
         
         //------------------
         // Load places plist
@@ -54,10 +57,10 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
             placesArray.append(place)
         }
         placesArray.sortInPlace({ $0.name < $1.name })
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
     }
 
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

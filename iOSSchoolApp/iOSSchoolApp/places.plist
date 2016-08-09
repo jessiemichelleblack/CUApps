@@ -82,8 +82,8 @@
 	</array>
 	<key>Buckingham Hall</key>
 	<array>
-		<real>40.002744</real>
-		<real>-105.260751</real>
+		<string>40.002744</string>
+		<string>-105.260751</string>
 		<string>Housing</string>
 	</array>
 	<key>Career Services</key>
@@ -130,8 +130,8 @@
 	</array>
 	<key>Laboratory for Atmospheric and Space Physics</key>
 	<array>
-		<real>40.008981</real>
-		<real>-105.247755</real>
+		<string>40.008981</string>
+		<string>-105.247755</string>
 		<string>Building</string>
 	</array>
 	<key>Cockerell Hall</key>
