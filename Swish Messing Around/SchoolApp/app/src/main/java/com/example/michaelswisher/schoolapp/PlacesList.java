@@ -86,8 +86,15 @@ public class PlacesList extends AppCompatActivity {
             {
                 String value = (String)adapter.getItemAtPosition(position);
                 ArrayList<String> valueSet = (ArrayList<String>) placesContainer.get(value);
+                /* Using the local maps activity */
+//                Intent intent = new Intent(PlacesList.this, MapsActivity.class);
+//                intent.putExtra("LocationName", value);
+//                intent.putExtra("LocationLat", valueSet.get(0));
+//                intent.putExtra("LocationLong", valueSet.get(1));
+//                startActivity(intent);
+
+                /* Using google maps app externally */
                 String mapsQuery = String.format("geo:0,0?q=%s,%s (%s)", valueSet.get(0), valueSet.get(1), value);
-                System.out.println(mapsQuery);
                 Uri gmmIntentUri = Uri.parse(mapsQuery);
                 Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
                 mapIntent.setPackage("com.google.android.apps.maps");
