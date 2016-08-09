@@ -3,6 +3,8 @@ package com.example.michaelswisher.schoolapp;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.SearchView;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -21,20 +23,21 @@ public class PlacesList extends AppCompatActivity {
     SearchView searchview;
     public List<String> placesList = new ArrayList<String>();
     ArrayAdapter<String> adapter;
-
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    final DatabaseReference myRef = database.getReference("places");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_places_list);
 
-        listview= (ListView) findViewById(R.id.placesList);
+        listview = (ListView) findViewById(R.id.placesList);
         searchview = (SearchView) findViewById(R.id.placesSearch);
         adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, placesList);
         listview.setAdapter(adapter);
+    }
 
-
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("places");
+    @Override protected void onResume(){
+        super.onResume();
         myRef.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
@@ -62,6 +65,18 @@ public class PlacesList extends AppCompatActivity {
             public boolean onQueryTextChange(String newText) {
                 adapter.getFilter().filter(newText);
                 return false;
+            }
+        });
+
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener()
+        {
+            @Override
+            public void onItemClick(AdapterView<?> adapter, View v, int position, long arg3)
+            {
+                String value = (String)adapter.getItemAtPosition(position);
+                System.out.println(myRef.child(value).getKey());
+                // assuming string and if you want to get the value on click of list item
+                // do what you intend to do on click of listview row
             }
         });
     }
