@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">SchoolApp</string>
+    <string name="searchHint">Search...</string>
+    <string-array name="menu_options">
+        <item>Places</item>
+        <item>Dining</item>
+        <item>Parking</item>
+        <item>MyCUInfo</item>
+    </string-array>
+    <string name="title_activity_maps">Map</string>
+</resources>
