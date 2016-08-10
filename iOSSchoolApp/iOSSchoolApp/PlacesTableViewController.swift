@@ -122,7 +122,36 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
             image = UIImage(named: "rec")
         } else if place.name == "Sewall Hall" {
             image = UIImage(named: "sewall")
+        } else if place.name == "CU Heritage Center (Old Main)" {
+            image = UIImage(named: "oldmain")
+        } else if place.name == "Ramaley Biology" {
+            image = UIImage(named: "bio")
+        } else if place.name == "Norlin Library" {
+            image = UIImage(named: "norlin")
+        } else if place.name == "Imig Music Building" {
+            image = UIImage(named: "music")
+        } else if place.name == "Macky Auditorium" {
+            image = UIImage(named: "macky")
+        } else if place.name == "McKenna Languages" {
+            image = UIImage(named: "mckenna")
+        } else if place.name == "Ketchum Arts and Sciences" {
+            image = UIImage(named: "ketchum")
+        } else if place.name == "Museum of Natural History" {
+            image = UIImage(named: "historymuseum")
+        } else if place.name == "Hale Science" {
+            image = UIImage(named: "hale")
+        } else if place.name == "Hellems Arts and Sciences" {
+            image = UIImage(named: "hellems")
+        } else if place.name == "Environmental Design" {
+            image = UIImage(named: "envdesign")
+        } else if place.name == "Guggenheim Geography" {
+            image = UIImage(named: "gugg")
+        } else if place.name == "Ekeley Sciences" {
+            image = UIImage(named: "ekeley")
+        } else if place.name == "School of Education" {
+            image = UIImage(named: "education")
         }
+        
         
         let newImage = resizeImage(image!, toTheSize: CGSizeMake(85, 85))
         let cellImageLayer: CALayer?  = cell.imageView!.layer
