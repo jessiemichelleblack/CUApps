@@ -34,8 +34,8 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
         //--------
         navigationController?.navigationBar.topItem?.title = "Places"
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.Plain, target:nil, action:nil)
-        navigationController?.navigationBar.barTintColor = UIColor.blackColor()
-        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+//        navigationController?.navigationBar.barTintColor = UIColor.blackColor()
+//        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         
         
         //------------

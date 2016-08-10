@@ -36,6 +36,7 @@
                             <constraint firstItem="b2W-9A-MF8" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="topMargin" constant="-7" id="hb4-I3-sL1"/>
                             <constraint firstItem="b2W-9A-MF8" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="mOr-Dt-tbU"/>
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="vw0-VM-T1D" secondAttribute="bottom" constant="385" id="pIb-bz-SSn"/>
+                            <constraint firstItem="vw0-VM-T1D" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="yf4-bJ-x3V"/>
                         </constraints>
                     </view>
                 </viewController>

@@ -10,6 +10,7 @@ import UIKit
 
 class MoodleController: UIViewController {
 
+
     @IBOutlet var webView: UIWebView!
     
     override func viewDidLoad() {
@@ -22,8 +23,9 @@ class MoodleController: UIViewController {
         // Get rid of extra space above webview
         self.automaticallyAdjustsScrollViewInsets = false
         
-        navigationController?.navigationBar.barTintColor = UIColor.blackColor()
-        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        navigationController?.navigationBar.topItem?.title = "Moodle"
+//        navigationController?.navigationBar.barTintColor = UIColor.blackColor()
+//        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
     }
 
     override func didReceiveMemoryWarning() {
