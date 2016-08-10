@@ -19,6 +19,22 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
     var filteredNames = [Place]()
     let searchController = UISearchController(searchResultsController: nil)
     
+    func resizeImage(image:UIImage, toTheSize size:CGSize)->UIImage{
+        
+        
+        let scale = CGFloat(max(size.width/image.size.width,
+            size.height/image.size.height))
+        let width:CGFloat  = image.size.width * scale
+        let height:CGFloat = image.size.height * scale;
+        
+        let rr:CGRect = CGRectMake( 0, 0, width, height);
+        
+        UIGraphicsBeginImageContextWithOptions(size, false, 0);
+        image.drawInRect(rr)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext();
+        return newImage
+    }
     
     //-------------
     // viewDidLoad
@@ -82,6 +98,7 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCellWithIdentifier("Cellidentifier", forIndexPath: indexPath)
 
         let place: Place
@@ -93,10 +110,30 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
         cell.textLabel?.text = place.name
         cell.detailTextLabel?.text = place.placeType
         
+        var image = UIImage(named: "default")
+        
+        if place.name == "Wardenburg Health Services" {
+            image = UIImage(named: "wardenburg")
+        } else if place.name == "University Theatre" {
+            image = UIImage(named: "universitytheatre")
+        } else if place.name == "University Memorial Center (UMC)" {
+            image = UIImage(named: "umc")
+        } else if place.name == "Student Recreation Center" {
+            image = UIImage(named: "rec")
+        } else if place.name == "Sewall Hall" {
+            image = UIImage(named: "sewall")
+        }
+        
+        let newImage = resizeImage(image!, toTheSize: CGSizeMake(85, 85))
+        let cellImageLayer: CALayer?  = cell.imageView!.layer
+//        cellImageLayer!.cornerRadius = cellImageLayer!.frame.size.width / 2
+        cellImageLayer!.masksToBounds = true
+        cell.imageView!.image = newImage
         return cell
     }
  
 
+    
     
     //------------------
     // Prepare for Segue

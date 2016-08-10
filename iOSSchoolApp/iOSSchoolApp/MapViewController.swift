@@ -115,8 +115,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         
         let lat = CLLocationDegrees(placesDetail[selectedPlace].latCoordinate)
         let long = CLLocationDegrees(placesDetail[selectedPlace].longCoordinate)
-        let latString = placesDetail[selectedPlace].latCoordinate
-        let longString = placesDetail[selectedPlace].longCoordinate
+//        let latString = placesDetail[selectedPlace].latCoordinate
+//        let longString = placesDetail[selectedPlace].longCoordinate
         
         //-----------
         // Setup Map

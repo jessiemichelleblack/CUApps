@@ -108,6 +108,7 @@
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UmF-gx-lAs">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -141,6 +142,7 @@
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Olp-8W-fCD">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -159,40 +161,6 @@
             </objects>
             <point key="canvasLocation" x="3511" y="1164"/>
         </scene>
-        <!--Moodle Controller-->
-        <scene sceneID="FeI-CY-Vgl">
-            <objects>
-                <viewController id="KAd-Zw-02k" customClass="MoodleController" customModule="iOSSchoolApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jN0-Lx-ekO"/>
-                        <viewControllerLayoutGuide type="bottom" id="IEF-wL-lqk"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ff1-Ex-7ip">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <webView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eLQ-wu-ebP">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
-                            </webView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="eLQ-wu-ebP" secondAttribute="trailing" id="5Ge-Vv-gGs"/>
-                            <constraint firstItem="eLQ-wu-ebP" firstAttribute="top" secondItem="jN0-Lx-ekO" secondAttribute="bottom" id="cIk-OQ-9e6"/>
-                            <constraint firstItem="eLQ-wu-ebP" firstAttribute="top" secondItem="jN0-Lx-ekO" secondAttribute="bottom" id="mkV-A2-Gsr"/>
-                            <constraint firstItem="eLQ-wu-ebP" firstAttribute="bottom" secondItem="IEF-wL-lqk" secondAttribute="top" id="o3Z-sr-2ws"/>
-                            <constraint firstItem="eLQ-wu-ebP" firstAttribute="leading" secondItem="ff1-Ex-7ip" secondAttribute="leading" id="oGd-gg-m5o"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="webView" destination="eLQ-wu-ebP" id="nuD-Gn-hSa"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uZn-3s-66w" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1888" y="1155"/>
-        </scene>
         <!--Places Table View Controller-->
         <scene sceneID="aLP-Io-5Ws">
             <objects>
@@ -210,9 +178,9 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dfl-mu-SyC">
-                                            <rect key="frame" x="8" y="13" width="173" height="99"/>
+                                            <rect key="frame" x="8" y="13" width="100" height="100"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="173" id="61Q-6s-OGQ"/>
+                                                <constraint firstAttribute="width" constant="100" id="61Q-6s-OGQ"/>
                                             </constraints>
                                         </imageView>
                                     </subviews>
@@ -249,14 +217,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="AIp-Ph-1Tg">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="AIp-Ph-1Tg">
                                 <rect key="frame" x="0.0" y="178" width="600" height="422"/>
                             </mapView>
-                            <searchBar contentMode="redraw" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sjr-d8-iK6">
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Sjr-d8-iK6">
                                 <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KlU-rx-63O">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KlU-rx-63O">
                                 <rect key="frame" x="251" y="125" width="98" height="30"/>
                                 <state key="normal" title="Get Directions"/>
                                 <connections>

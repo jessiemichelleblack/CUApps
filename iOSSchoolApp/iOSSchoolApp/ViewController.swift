@@ -12,15 +12,12 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //--------
-        // Nav bar
-        //--------
-        navigationController?.navigationBar.topItem!.title = "University of Colorado Boulder"
-        navigationController?.navigationBar.barTintColor = UIColor.blackColor()
-        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
     }
 
+    override func viewDidAppear(animated: Bool) {
+        navigationController?.navigationBar.topItem!.title = "University of Colorado Boulder"
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
