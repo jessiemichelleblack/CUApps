@@ -12,7 +12,7 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
     
     // Object variables
     var placesDict = [String : Place]() // Used as master store for all of the objects
-    var placesArray = [String]() // Used as a container for all of the place names
+    var placesArray = [String]() // Used as a master container for all of the place names
     var tempDict = [String : [String]]() // Needed as a helper to create the places dictionary
     
     // Search variables
@@ -78,6 +78,7 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
             placesArray.append(name)
         }
         placesArray.sortInPlace()
+        filteredNames = placesArray
     }
 
     
@@ -95,10 +96,7 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
 
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if searchController.active && searchController.searchBar.text != "" {
-            return filteredNames.count
-        }
-        return placesArray.count
+        return filteredNames.count
     }
 
     
@@ -106,14 +104,7 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
         
         let cell = tableView.dequeueReusableCellWithIdentifier("Cellidentifier", forIndexPath: indexPath)
 
-        let place: String
-        if searchController.active && searchController.searchBar.text != "" {
-            place = filteredNames[indexPath.row]
-        } else {
-            place = placesArray[indexPath.row]
-            filteredNames = placesArray
-        }
-        
+        let place = filteredNames[indexPath.row]
         let placeObject = placesDict[place]
         
         cell.textLabel?.text = place
@@ -157,16 +148,15 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
     }
     
 
-    func filterContentForSearchText(searchText: String, scope: String = "All") {
+    func filterContentForSearchText(searchText: String, scope: String) {
         filteredNames = placesArray.filter { place in
             let categoryMatch = (scope == "All") || (placesDict[place]!.placeType == scope)
-            return  categoryMatch && place.lowercaseString.containsString(searchText.lowercaseString)
+            return  categoryMatch && (searchText == "" || place.lowercaseString.containsString(searchText.lowercaseString))
         }
         
         tableView.reloadData()
         
     }
-    
     
     func updateSearchResultsForSearchController(searchController: UISearchController) {
         let searchBar = searchController.searchBar
