@@ -48,7 +48,7 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
         //--------
         // Navbar
         //--------
-        navigationController?.navigationBar.topItem?.title = "Places"
+        navigationController?.navigationBar.topItem?.title = "Place"
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.Plain, target:nil, action:nil)
 //        navigationController?.navigationBar.barTintColor = UIColor.blackColor()
 //        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
@@ -107,7 +107,9 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
         let place = filteredNames[indexPath.row]
         let placeObject = placesDict[place]
         
+        
         cell.textLabel?.text = place
+        navigationController?.navigationBar.topItem?.title = place
         cell.detailTextLabel?.text = placeObject!.placeType
         
         var image = UIImage(named: "default")
