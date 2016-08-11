@@ -13,7 +13,7 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
     // Object variables
     var placesDict = [String : Place]() // Used as master store for all of the objects
     var placesArray = [String]() // Used as a container for all of the place names
-    var tempDict = [String : [String]]()
+    var tempDict = [String : [String]]() // Needed as a helper to create the places dictionary
     
     // Search variables
     var filteredNames = [String]()
@@ -69,12 +69,14 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
         let path = NSBundle.mainBundle().pathForResource("places", ofType: "plist")
         tempDict = NSDictionary(contentsOfFile: path!) as! [String: [String]]
         for (name, values) in tempDict {
-            placesDict[name] = Place(newname: name, newlat: values[0], newlong: values[1], newtype: values[2])
-            //let place = Place(newname: name, newlat: values[0], newlong: values[1], newtype: values[2])
-            //placesArray.append(place)
+            if(values.count == 3){
+                placesDict[name] = Place(newname: name, newlat: values[0], newlong: values[1], newtype: values[2])
+            }
+            else if(values.count == 4){ //Needed in case the place has a picture name associated with it
+                placesDict[name] = Place(newname: name, newlat: values[0], newlong: values[1], newtype: values[2], newPictureName: values[3])
+            }
             placesArray.append(name)
         }
-        //placesArray.sortInPlace({ $0.name < $1.name })
         placesArray.sortInPlace()
     }
 
@@ -119,56 +121,11 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
         
         var image = UIImage(named: "default")
         
-        if placeObject!.name == "Wardenburg Health Services" {
-            image = UIImage(named: "wardenburg")
-        } else if placeObject!.name == "University Theatre" {
-            image = UIImage(named: "universitytheatre")
-        } else if placeObject!.name == "University Memorial Center (UMC)" {
-            image = UIImage(named: "umc")
-        } else if placeObject!.name == "Student Recreation Center" {
-            image = UIImage(named: "rec")
-        } else if placeObject!.name == "Sewall Hall" {
-            image = UIImage(named: "sewall")
-        } else if placeObject!.name == "CU Heritage Center (Old Main)" {
-            image = UIImage(named: "oldmain")
-        } else if placeObject!.name == "Ramaley Biology" {
-            image = UIImage(named: "bio")
-        } else if placeObject!.name == "Norlin Library" {
-            image = UIImage(named: "norlin")
-        } else if placeObject!.name == "Imig Music Building" {
-            image = UIImage(named: "music")
-        } else if placeObject!.name == "Macky Auditorium" {
-            image = UIImage(named: "macky")
-        } else if placeObject!.name == "McKenna Languages" {
-            image = UIImage(named: "mckenna")
-        } else if placeObject!.name == "Ketchum Arts and Sciences" {
-            image = UIImage(named: "ketchum")
-        } else if placeObject!.name == "Museum of Natural History" {
-            image = UIImage(named: "historymuseum")
-        } else if placeObject!.name == "Hale Science" {
-            image = UIImage(named: "hale")
-        } else if placeObject!.name == "Hellems Arts and Sciences" {
-            image = UIImage(named: "hellems")
-        } else if placeObject!.name == "Environmental Design" {
-            image = UIImage(named: "envdesign")
-        } else if placeObject!.name == "Guggenheim Geography" {
-            image = UIImage(named: "gugg")
-        } else if placeObject!.name == "Ekeley Sciences" {
-            image = UIImage(named: "ekeley")
-        } else if placeObject!.name == "School of Education" {
-            image = UIImage(named: "education")
-        } else if placeObject!.name == "Eaton Humanities" {
-            image = UIImage(named: "eaton")
-        } else if placeObject!.name == "Economics Department" {
-            image = UIImage(named: "econ")
-        } else if placeObject!.name == "Cristol Chemistry and Biochemistry" {
-            image = UIImage(named: "cristol")
-        } else if placeObject!.name == "Clare" {
-            image = UIImage(named: "clare")
+        if(placeObject!.pictureName != ""){
+            image = UIImage(named: placeObject!.pictureName)
         }
-        
-        
-        
+
+
         let newImage = resizeImage(image!, toTheSize: CGSizeMake(85, 85))
         let cellImageLayer: CALayer?  = cell.imageView!.layer
 //        cellImageLayer!.cornerRadius = cellImageLayer!.frame.size.width / 2
@@ -188,13 +145,9 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
         if segue.identifier == "placessegue" {
             let detailVC = segue.destinationViewController as! MapViewController
             let indexPath = tableView.indexPathForCell(sender as! UITableViewCell)!
+
             //sets the data for the destination controller
-            //var placeName = placesArray[indexPath.row].name
-            //var tempPlace = Place(
-            //print(indexPath.row)
             detailVC.title = filteredNames[indexPath.row]
-            //detailVC.placesDetail = placesArray
-            //detailVC.selectedPlace = indexPath.row
             detailVC.place = placesDict[filteredNames[indexPath.row]]!
         } else if segue.identifier == "moodle" {
             let vc = segue.destinationViewController as UIViewController
@@ -203,17 +156,7 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
         }
     }
     
-    
-    
-    
-    
-//    func filterContentForSearchText(searchText: String, scope: String = "All") {
-//        filteredNames = placesArray.filter { name in
-//            return name.name.lowercaseString.containsString(searchText.lowercaseString)
-//        }
-//        
-//        tableView.reloadData()
-//    }
+
     func filterContentForSearchText(searchText: String, scope: String = "All") {
         filteredNames = placesArray.filter { place in
             let categoryMatch = (scope == "All") || (placesDict[place]!.placeType == scope)

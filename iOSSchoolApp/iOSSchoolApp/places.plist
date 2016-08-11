@@ -97,6 +97,7 @@
 		<string>40.006079</string>
 		<string>-105.268983</string>
 		<string>Building</string>
+		<string>music</string>
 	</array>
 	<key>GOLD Biosciences (MCDB)</key>
 	<array>
@@ -109,6 +110,7 @@
 		<string>40.010127</string>
 		<string>-105.272792</string>
 		<string>Building</string>
+		<string>macky</string>
 	</array>
 	<key>Cheyenne Arapaho Hall</key>
 	<array>
@@ -151,12 +153,14 @@
 		<string>40.008218</string>
 		<string>-105.273822</string>
 		<string>Building</string>
+		<string>universitytheatre</string>
 	</array>
 	<key>CU Heritage Center (Old Main)</key>
 	<array>
 		<string>40.009284</string>
 		<string>-105.27335</string>
 		<string>Building</string>
+		<string>oldmain</string>
 	</array>
 	<key>Department of Computer Science</key>
 	<array>
@@ -265,6 +269,7 @@
 		<string>40.007027</string>
 		<string>-105.272757</string>
 		<string>Building</string>
+		<string>historymuseum</string>
 	</array>
 	<key>Art Museum</key>
 	<array>
@@ -289,6 +294,7 @@
 		<string>40.008168</string>
 		<string>-105.270241</string>
 		<string>Building</string>
+		<string>ketchum</string>
 	</array>
 	<key>Hallett Hall</key>
 	<array>
@@ -331,6 +337,7 @@
 		<string>40.008215</string>
 		<string>-105.274244</string>
 		<string>Building</string>
+		<string>gugg</string>
 	</array>
 	<key>Brackett Hall</key>
 	<array>
@@ -349,6 +356,7 @@
 		<string>40.009238</string>
 		<string>-105.274958</string>
 		<string>Building</string>
+		<string>hale</string>
 	</array>
 	<key>Loft Theatre</key>
 	<array>
@@ -373,18 +381,21 @@
 		<string>40.005372</string>
 		<string>-105.268904</string>
 		<string>Building</string>
+		<string>wardenburg</string>
 	</array>
 	<key>Ekeley Sciences</key>
 	<array>
 		<string>40.008203</string>
 		<string>-105.271794</string>
 		<string>Building</string>
+		<string>ekeley</string>
 	</array>
 	<key>University Memorial Center (UMC)</key>
 	<array>
 		<string>40.006919</string>
 		<string>-105.27162</string>
 		<string>Building</string>
+		<string>umc</string>
 	</array>
 	<key>Grusin Music Hall</key>
 	<array>
@@ -427,12 +438,14 @@
 		<string>40.007378</string>
 		<string>-105.273605</string>
 		<string>Building</string>
+		<string>education</string>
 	</array>
 	<key>Eaton Humanities</key>
 	<array>
 		<string>40.009267</string>
 		<string>-105.27184</string>
 		<string>Building</string>
+		<string>eaton</string>
 	</array>
 	<key>Andrews Hall</key>
 	<array>
@@ -469,6 +482,7 @@
 		<string>40.010287</string>
 		<string>-105.269388</string>
 		<string>Building</string>
+		<string>rec</string>
 	</array>
 	<key>Duane Physics and Astrophysics</key>
 	<array>
@@ -565,6 +579,7 @@
 		<string>40.007712</string>
 		<string>-105.270981</string>
 		<string>Building</string>
+		<string>cristol</string>
 	</array>
 	<key>Laughing Goat Cafe</key>
 	<array>
@@ -589,12 +604,14 @@
 		<string>40.008784</string>
 		<string>-105.269695</string>
 		<string>Building</string>
+		<string>bio</string>
 	</array>
 	<key>Economics Department</key>
 	<array>
 		<string>40.007884</string>
 		<string>-105.274559</string>
 		<string>Building</string>
+		<string>econ</string>
 	</array>
 	<key>Department of Electrical, Computer, and Energy Engineering</key>
 	<array>
@@ -607,6 +624,7 @@
 		<string>40.009761</string>
 		<string>-105.273638</string>
 		<string>Building</string>
+		<string>mckenna</string>
 	</array>
 	<key>Discovery Learning Center</key>
 	<array>
@@ -637,6 +655,7 @@
 		<string>40.00879</string>
 		<string>-105.270965</string>
 		<string>Building</string>
+		<string>norlin</string>
 	</array>
 	<key>Pekoe Sip House</key>
 	<array>
@@ -667,6 +686,7 @@
 		<string>40.007704</string>
 		<string>-105.27277</string>
 		<string>Building</string>
+		<string>hellems</string>
 	</array>
 	<key>Aden Hall</key>
 	<array>
@@ -685,6 +705,7 @@
 		<string>40.010615</string>
 		<string>-105.271197</string>
 		<string>Housing</string>
+		<string>sewall</string>
 	</array>
 	<key>Willard Hall</key>
 	<array>
@@ -721,6 +742,7 @@
 		<string>40.007064</string>
 		<string>-105.269254</string>
 		<string>Building</string>
+		<string>envdesign</string>
 	</array>
 	<key>Libby Hall</key>
 	<array>
