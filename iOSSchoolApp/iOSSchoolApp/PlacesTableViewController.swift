@@ -11,12 +11,12 @@ import UIKit
 class PlacesTableViewController: UITableViewController, UISearchResultsUpdating, UISearchBarDelegate {
     
     // Object variables
-    var placesDict = [String : [String]]()
-    var placesArray = [Place]()
+    var placesDict = [String : Place]() // Used as master store for all of the objects
+    var placesArray = [String]() // Used as a container for all of the place names
     var tempDict = [String : [String]]()
     
     // Search variables
-    var filteredNames = [Place]()
+    var filteredNames = [String]()
     let searchController = UISearchController(searchResultsController: nil)
     
     func resizeImage(image:UIImage, toTheSize size:CGSize)->UIImage{
@@ -69,10 +69,13 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
         let path = NSBundle.mainBundle().pathForResource("places", ofType: "plist")
         tempDict = NSDictionary(contentsOfFile: path!) as! [String: [String]]
         for (name, values) in tempDict {
-            let place = Place(newname: name, newlat: values[0], newlong: values[1], newtype: values[2])
-            placesArray.append(place)
+            placesDict[name] = Place(newname: name, newlat: values[0], newlong: values[1], newtype: values[2])
+            //let place = Place(newname: name, newlat: values[0], newlong: values[1], newtype: values[2])
+            //placesArray.append(place)
+            placesArray.append(name)
         }
-        placesArray.sortInPlace({ $0.name < $1.name })
+        //placesArray.sortInPlace({ $0.name < $1.name })
+        placesArray.sortInPlace()
     }
 
     
@@ -101,62 +104,66 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
         
         let cell = tableView.dequeueReusableCellWithIdentifier("Cellidentifier", forIndexPath: indexPath)
 
-        let place: Place
+        let place: String
         if searchController.active && searchController.searchBar.text != "" {
             place = filteredNames[indexPath.row]
         } else {
             place = placesArray[indexPath.row]
+            filteredNames = placesArray
         }
-        cell.textLabel?.text = place.name
-        cell.detailTextLabel?.text = place.placeType
+        
+        let placeObject = placesDict[place]
+        
+        cell.textLabel?.text = place
+        cell.detailTextLabel?.text = placeObject!.placeType
         
         var image = UIImage(named: "default")
         
-        if place.name == "Wardenburg Health Services" {
+        if placeObject!.name == "Wardenburg Health Services" {
             image = UIImage(named: "wardenburg")
-        } else if place.name == "University Theatre" {
+        } else if placeObject!.name == "University Theatre" {
             image = UIImage(named: "universitytheatre")
-        } else if place.name == "University Memorial Center (UMC)" {
+        } else if placeObject!.name == "University Memorial Center (UMC)" {
             image = UIImage(named: "umc")
-        } else if place.name == "Student Recreation Center" {
+        } else if placeObject!.name == "Student Recreation Center" {
             image = UIImage(named: "rec")
-        } else if place.name == "Sewall Hall" {
+        } else if placeObject!.name == "Sewall Hall" {
             image = UIImage(named: "sewall")
-        } else if place.name == "CU Heritage Center (Old Main)" {
+        } else if placeObject!.name == "CU Heritage Center (Old Main)" {
             image = UIImage(named: "oldmain")
-        } else if place.name == "Ramaley Biology" {
+        } else if placeObject!.name == "Ramaley Biology" {
             image = UIImage(named: "bio")
-        } else if place.name == "Norlin Library" {
+        } else if placeObject!.name == "Norlin Library" {
             image = UIImage(named: "norlin")
-        } else if place.name == "Imig Music Building" {
+        } else if placeObject!.name == "Imig Music Building" {
             image = UIImage(named: "music")
-        } else if place.name == "Macky Auditorium" {
+        } else if placeObject!.name == "Macky Auditorium" {
             image = UIImage(named: "macky")
-        } else if place.name == "McKenna Languages" {
+        } else if placeObject!.name == "McKenna Languages" {
             image = UIImage(named: "mckenna")
-        } else if place.name == "Ketchum Arts and Sciences" {
+        } else if placeObject!.name == "Ketchum Arts and Sciences" {
             image = UIImage(named: "ketchum")
-        } else if place.name == "Museum of Natural History" {
+        } else if placeObject!.name == "Museum of Natural History" {
             image = UIImage(named: "historymuseum")
-        } else if place.name == "Hale Science" {
+        } else if placeObject!.name == "Hale Science" {
             image = UIImage(named: "hale")
-        } else if place.name == "Hellems Arts and Sciences" {
+        } else if placeObject!.name == "Hellems Arts and Sciences" {
             image = UIImage(named: "hellems")
-        } else if place.name == "Environmental Design" {
+        } else if placeObject!.name == "Environmental Design" {
             image = UIImage(named: "envdesign")
-        } else if place.name == "Guggenheim Geography" {
+        } else if placeObject!.name == "Guggenheim Geography" {
             image = UIImage(named: "gugg")
-        } else if place.name == "Ekeley Sciences" {
+        } else if placeObject!.name == "Ekeley Sciences" {
             image = UIImage(named: "ekeley")
-        } else if place.name == "School of Education" {
+        } else if placeObject!.name == "School of Education" {
             image = UIImage(named: "education")
-        } else if place.name == "Eaton Humanities" {
+        } else if placeObject!.name == "Eaton Humanities" {
             image = UIImage(named: "eaton")
-        } else if place.name == "Economics Department" {
+        } else if placeObject!.name == "Economics Department" {
             image = UIImage(named: "econ")
-        } else if place.name == "Cristol Chemistry and Biochemistry" {
+        } else if placeObject!.name == "Cristol Chemistry and Biochemistry" {
             image = UIImage(named: "cristol")
-        } else if place.name == "Clare" {
+        } else if placeObject!.name == "Clare" {
             image = UIImage(named: "clare")
         }
         
@@ -184,10 +191,11 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
             //sets the data for the destination controller
             //var placeName = placesArray[indexPath.row].name
             //var tempPlace = Place(
-            detailVC.title = placesArray[indexPath.row].name
-            detailVC.placesDetail = placesArray
-            detailVC.selectedPlace = indexPath.row
-            //detailVC.place = placesDict[placeName]
+            //print(indexPath.row)
+            detailVC.title = filteredNames[indexPath.row]
+            //detailVC.placesDetail = placesArray
+            //detailVC.selectedPlace = indexPath.row
+            detailVC.place = placesDict[filteredNames[indexPath.row]]!
         } else if segue.identifier == "moodle" {
             let vc = segue.destinationViewController as UIViewController
             vc.navigationItem.title = "Moodle"
@@ -208,11 +216,12 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
 //    }
     func filterContentForSearchText(searchText: String, scope: String = "All") {
         filteredNames = placesArray.filter { place in
-            let categoryMatch = (scope == "All") || (place.placeType == scope)
-            return  categoryMatch && place.name.lowercaseString.containsString(searchText.lowercaseString)
+            let categoryMatch = (scope == "All") || (placesDict[place]!.placeType == scope)
+            return  categoryMatch && place.lowercaseString.containsString(searchText.lowercaseString)
         }
         
         tableView.reloadData()
+        
     }
     
     

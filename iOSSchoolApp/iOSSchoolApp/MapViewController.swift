@@ -14,10 +14,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet var mapView: MKMapView!
     let locationManager = CLLocationManager()
     
-    var selectedPlace = 0
-    var places = [String]()
-    var placesDetail = [Place]()
+//    var selectedPlace = 0
+//    var places = [String]()
+//    var placesDetail = [Place]()
     var place = Place()
+    
     
     let latString : String = ""
     let longString : String = ""
@@ -63,6 +64,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         navigationController?.navigationBar.topItem!.title = "Engineering Center"
         navigationController?.navigationItem.title = "Engineering Center"
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.Plain, target:nil, action:nil)
+        
+        print(place.name)
+        print(place.placeType)
+        print(place.latCoordinate)
+        print(place.longCoordinate)
     }
 
     override func didReceiveMemoryWarning() {
@@ -114,8 +120,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
 //        places = placesListDetail.placesData[chosenPlace]! as! [AnyObject]
 //        places = placesListDetail.placesData[chosenPlace]! as! [String]
         
-        let lat = CLLocationDegrees(placesDetail[selectedPlace].latCoordinate)
-        let long = CLLocationDegrees(placesDetail[selectedPlace].longCoordinate)
+//        let lat = CLLocationDegrees(placesDetail[selectedPlace].latCoordinate)
+//        let long = CLLocationDegrees(placesDetail[selectedPlace].longCoordinate)
+        let lat = CLLocationDegrees(place.latCoordinate)
+        let long = CLLocationDegrees(place.longCoordinate)
 //        let latString = placesDetail[selectedPlace].latCoordinate
 //        let longString = placesDetail[selectedPlace].longCoordinate
         
@@ -133,7 +141,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         // Create annotation
         let annotation = MKPointAnnotation()
         annotation.coordinate=location
-        annotation.title = placesDetail[selectedPlace].name
+        annotation.title = place.name
 //        annotation.subtitle="Open: 7am - 8pm"
         mapView.addAnnotation(annotation)
         
