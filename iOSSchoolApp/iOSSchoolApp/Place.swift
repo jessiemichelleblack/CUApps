@@ -14,6 +14,13 @@ class Place {
     var longCoordinate : String
     var placeType : String
     
+    init (){
+        self.name = ""
+        self.latCoordinate = ""
+        self.longCoordinate = ""
+        self.placeType = ""
+    }
+    
     init (newname : String, newlat : String, newlong : String, newtype : String){
         self.name = newname
         self.latCoordinate = newlat

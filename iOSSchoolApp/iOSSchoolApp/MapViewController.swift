@@ -17,6 +17,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     var selectedPlace = 0
     var places = [String]()
     var placesDetail = [Place]()
+    var place = Place()
     
     let latString : String = ""
     let longString : String = ""

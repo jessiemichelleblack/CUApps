@@ -150,7 +150,16 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
             image = UIImage(named: "ekeley")
         } else if place.name == "School of Education" {
             image = UIImage(named: "education")
+        } else if place.name == "Eaton Humanities" {
+            image = UIImage(named: "eaton")
+        } else if place.name == "Economics Department" {
+            image = UIImage(named: "econ")
+        } else if place.name == "Cristol Chemistry and Biochemistry" {
+            image = UIImage(named: "cristol")
+        } else if place.name == "Clare" {
+            image = UIImage(named: "clare")
         }
+        
         
         
         let newImage = resizeImage(image!, toTheSize: CGSizeMake(85, 85))
@@ -173,9 +182,12 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
             let detailVC = segue.destinationViewController as! MapViewController
             let indexPath = tableView.indexPathForCell(sender as! UITableViewCell)!
             //sets the data for the destination controller
+            //var placeName = placesArray[indexPath.row].name
+            //var tempPlace = Place(
             detailVC.title = placesArray[indexPath.row].name
             detailVC.placesDetail = placesArray
             detailVC.selectedPlace = indexPath.row
+            //detailVC.place = placesDict[placeName]
         } else if segue.identifier == "moodle" {
             let vc = segue.destinationViewController as UIViewController
             vc.navigationItem.title = "Moodle"
