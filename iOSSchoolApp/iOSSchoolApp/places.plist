@@ -2,6 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UMC Bike Station</key>
+	<array>
+		<string></string>
+		<string></string>
+		<string>Place</string>
+	</array>
 	<key>The Connection Bowling, Billards and Games</key>
 	<array>
 		<string>40.006501</string>
@@ -43,6 +49,7 @@
 		<string>40.007683</string>
 		<string>-105.270533</string>
 		<string>Building</string>
+		<string>visualart</string>
 	</array>
 	<key>Coors Events Center</key>
 	<array>
@@ -197,12 +204,14 @@
 		<string>40.006077</string>
 		<string>-105.265806</string>
 		<string>Housing</string>
+		<string>farrandhall</string>
 	</array>
 	<key>Regent Administrative Center</key>
 	<array>
 		<string>40.00449</string>
 		<string>-105.267045</string>
 		<string>Building</string>
+		<string>regent</string>
 	</array>
 	<key>Office of Admissions</key>
 	<array>
@@ -375,6 +384,7 @@
 		<string>40.005658</string>
 		<string>-105.263452</string>
 		<string>Building</string>
+		<string>kol</string>
 	</array>
 	<key>Wardenburg Health Services</key>
 	<array>
@@ -573,6 +583,7 @@
 		<string>40.009528</string>
 		<string>-105.266934</string>
 		<string>Place</string>
+		<string>folsomfield</string>
 	</array>
 	<key>Cristol Chemistry and Biochemistry</key>
 	<array>
@@ -674,6 +685,7 @@
 		<string>40.007268</string>
 		<string>-105.263387</string>
 		<string>Building</string>
+		<string>engineering</string>
 	</array>
 	<key>Environmental Studies Program</key>
 	<array>

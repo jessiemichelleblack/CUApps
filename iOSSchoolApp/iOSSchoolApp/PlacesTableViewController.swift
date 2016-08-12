@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class PlacesTableViewController: UITableViewController, UISearchResultsUpdating, UISearchBarDelegate {
     
@@ -19,20 +20,24 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
     var filteredNames = [String]()
     let searchController = UISearchController(searchResultsController: nil)
     
+    var ref = Firebase(url:"https://cuapp-5d360.firebaseio.com/")
+    
+    //-----------------------
+    // Resize image to circle
+    //-----------------------
     func resizeImage(image:UIImage, toTheSize size:CGSize)->UIImage{
         
         
-        let scale = CGFloat(max(size.width/image.size.width,
-            size.height/image.size.height))
+        let scale = CGFloat(max(size.width/image.size.width, size.height/image.size.height))
         let width:CGFloat  = image.size.width * scale
-        let height:CGFloat = image.size.height * scale;
+        let height:CGFloat = image.size.height * scale
         
-        let rr:CGRect = CGRectMake( 0, 0, width, height);
+        let rr:CGRect = CGRectMake( 0, 0, width, height)
         
-        UIGraphicsBeginImageContextWithOptions(size, false, 0);
+        UIGraphicsBeginImageContextWithOptions(size, false, 0)
         image.drawInRect(rr)
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext();
+        UIGraphicsEndImageContext()
         return newImage
     }
     
@@ -48,7 +53,7 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
         //--------
         // Navbar
         //--------
-        navigationController?.navigationBar.topItem?.title = "Place"
+        navigationController?.navigationBar.topItem?.title = "Places"
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.Plain, target:nil, action:nil)
 //        navigationController?.navigationBar.barTintColor = UIColor.blackColor()
 //        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
@@ -62,6 +67,11 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
         
+        
+        ref.observeEventType(.Value, withBlock: {
+            snapshot in
+            println("\(snapshot.key) -> \(snapshot.value)")
+        })
         
         //------------------
         // Load places plist
@@ -109,7 +119,7 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
         
         
         cell.textLabel?.text = place
-        navigationController?.navigationBar.topItem?.title = place
+        navigationController?.navigationBar.topItem?.title = "Places"
         cell.detailTextLabel?.text = placeObject!.placeType
         
         var image = UIImage(named: "default")
@@ -120,8 +130,9 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
 
 
         let newImage = resizeImage(image!, toTheSize: CGSizeMake(85, 85))
+        
         let cellImageLayer: CALayer?  = cell.imageView!.layer
-//        cellImageLayer!.cornerRadius = cellImageLayer!.frame.size.width / 2
+        cellImageLayer!.cornerRadius = cellImageLayer!.frame.size.width / 2
         cellImageLayer!.masksToBounds = true
         cell.imageView!.image = newImage
         return cell
