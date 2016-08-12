@@ -22,6 +22,7 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
     
     var ref = Firebase(url:"https://cuapp-5d360.firebaseio.com/")
     
+    
     //-----------------------
     // Resize image to circle
     //-----------------------
