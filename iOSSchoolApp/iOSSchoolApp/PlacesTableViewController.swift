@@ -7,18 +7,40 @@
 //
 
 import UIKit
+import Firebase
 
 class PlacesTableViewController: UITableViewController, UISearchResultsUpdating, UISearchBarDelegate {
     
     // Object variables
-    var placesDict = [String : [String]]()
-    var placesArray = [Place]()
-    var tempDict = [String : [String]]()
+    var placesDict = [String : Place]() // Used as master store for all of the objects
+    var placesArray = [String]() // Used as a master container for all of the place names
+    var tempDict = [String : [String]]() // Needed as a helper to create the places dictionary
     
     // Search variables
-    var filteredNames = [Place]()
+    var filteredNames = [String]()
     let searchController = UISearchController(searchResultsController: nil)
     
+    var ref = Firebase(url:"https://cuapp-5d360.firebaseio.com/")
+    
+    
+    //-----------------------
+    // Resize image to circle
+    //-----------------------
+    func resizeImage(image:UIImage, toTheSize size:CGSize)->UIImage{
+        
+        
+        let scale = CGFloat(max(size.width/image.size.width, size.height/image.size.height))
+        let width:CGFloat  = image.size.width * scale
+        let height:CGFloat = image.size.height * scale
+        
+        let rr:CGRect = CGRectMake( 0, 0, width, height)
+        
+        UIGraphicsBeginImageContextWithOptions(size, false, 0)
+        image.drawInRect(rr)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return newImage
+    }
     
     //-------------
     // viewDidLoad
@@ -34,6 +56,8 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
         //--------
         navigationController?.navigationBar.topItem?.title = "Places"
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.Plain, target:nil, action:nil)
+//        navigationController?.navigationBar.barTintColor = UIColor.blackColor()
+//        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         
         
         //------------
@@ -44,20 +68,32 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
         
+        
+        ref.observeEventType(.Value, withBlock: {
+            snapshot in
+            println("\(snapshot.key) -> \(snapshot.value)")
+        })
+        
         //------------------
         // Load places plist
         //------------------
         let path = NSBundle.mainBundle().pathForResource("places", ofType: "plist")
         tempDict = NSDictionary(contentsOfFile: path!) as! [String: [String]]
         for (name, values) in tempDict {
-            let place = Place(newname: name, newlat: values[0], newlong: values[1], newtype: values[2])
-            placesArray.append(place)
+            if(values.count == 3){
+                placesDict[name] = Place(newname: name, newlat: values[0], newlong: values[1], newtype: values[2])
+            }
+            else if(values.count == 4){ //Needed in case the place has a picture name associated with it
+                placesDict[name] = Place(newname: name, newlat: values[0], newlong: values[1], newtype: values[2], newPictureName: values[3])
+            }
+            placesArray.append(name)
         }
-        placesArray.sortInPlace({ $0.name < $1.name })
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        placesArray.sortInPlace()
+        filteredNames = placesArray
     }
 
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -71,29 +107,40 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
 
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if searchController.active && searchController.searchBar.text != "" {
-            return filteredNames.count
-        }
-        return placesArray.count
+        return filteredNames.count
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCellWithIdentifier("Cellidentifier", forIndexPath: indexPath)
 
-        let place: Place
-        if searchController.active && searchController.searchBar.text != "" {
-            place = filteredNames[indexPath.row]
-        } else {
-            place = placesArray[indexPath.row]
-        }
-        cell.textLabel?.text = place.name
-        cell.detailTextLabel?.text = place.placeType
+        let place = filteredNames[indexPath.row]
+        let placeObject = placesDict[place]
         
+        
+        cell.textLabel?.text = place
+        navigationController?.navigationBar.topItem?.title = "Places"
+        cell.detailTextLabel?.text = placeObject!.placeType
+        
+        var image = UIImage(named: "default")
+        
+        if(placeObject!.pictureName != ""){
+            image = UIImage(named: placeObject!.pictureName)
+        }
+
+
+        let newImage = resizeImage(image!, toTheSize: CGSizeMake(85, 85))
+        
+        let cellImageLayer: CALayer?  = cell.imageView!.layer
+        cellImageLayer!.cornerRadius = cellImageLayer!.frame.size.width / 2
+        cellImageLayer!.masksToBounds = true
+        cell.imageView!.image = newImage
         return cell
     }
  
 
+    
     
     //------------------
     // Prepare for Segue
@@ -103,33 +150,27 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
         if segue.identifier == "placessegue" {
             let detailVC = segue.destinationViewController as! MapViewController
             let indexPath = tableView.indexPathForCell(sender as! UITableViewCell)!
+
             //sets the data for the destination controller
-            detailVC.title = placesArray[indexPath.row].name
-            detailVC.placesDetail = placesArray
-            detailVC.selectedPlace = indexPath.row
+            detailVC.title = filteredNames[indexPath.row]
+            detailVC.place = placesDict[filteredNames[indexPath.row]]!
+        } else if segue.identifier == "moodle" {
+            let vc = segue.destinationViewController as UIViewController
+            vc.navigationItem.title = "Moodle"
+            navigationItem.title = "Home"
         }
     }
     
-    
-    
-    
-    
-//    func filterContentForSearchText(searchText: String, scope: String = "All") {
-//        filteredNames = placesArray.filter { name in
-//            return name.name.lowercaseString.containsString(searchText.lowercaseString)
-//        }
-//        
-//        tableView.reloadData()
-//    }
-    func filterContentForSearchText(searchText: String, scope: String = "All") {
+
+    func filterContentForSearchText(searchText: String, scope: String) {
         filteredNames = placesArray.filter { place in
-            let categoryMatch = (scope == "All") || (place.placeType == scope)
-            return  categoryMatch && place.name.lowercaseString.containsString(searchText.lowercaseString)
+            let categoryMatch = (scope == "All") || (placesDict[place]!.placeType == scope)
+            return  categoryMatch && (searchText == "" || place.lowercaseString.containsString(searchText.lowercaseString))
         }
         
         tableView.reloadData()
+        
     }
-    
     
     func updateSearchResultsForSearchController(searchController: UISearchController) {
         let searchBar = searchController.searchBar

@@ -14,9 +14,26 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet var mapView: MKMapView!
     let locationManager = CLLocationManager()
     
-    var selectedPlace = 0
-    var places = [String]()
-    var placesDetail = [Place]()
+    var place = Place()
+    
+    @IBAction func getDirections(sender: AnyObject) {
+//        if (UIApplication.sharedApplication().canOpenURL(NSURL(string:"comgooglemaps://")!)) {
+//            UIApplication.sharedApplication().openURL(NSURL(string:
+//                "comgooglemaps://?center=" + latString + "," + longString + "&zoom=14&views=traffic")!)
+//        } else {
+//            print("Can't use comgooglemaps://");
+//        }
+        let customURL = "comgooglemaps://"
+        if UIApplication.sharedApplication().canOpenURL(NSURL(string: customURL)!) {
+            UIApplication.sharedApplication().openURL(NSURL(string: customURL)!)
+        }
+        else {
+            let alert = UIAlertController(title: "Error", message: "Google maps not installed", preferredStyle: UIAlertControllerStyle.Alert)
+            let ok = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil)
+            alert.addAction(ok)
+            self.presentViewController(alert, animated:true, completion: nil)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,10 +45,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
             locationManager.requestLocation()
         }
-        
-    
-        
-
         
         //----------------
         // Navigation Bar
@@ -85,18 +98,16 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     
     
     override func viewWillAppear(animated: Bool) {
-//        placesListDetail.places = Array(placesListDetail.placesData.keys)
-//        let chosenPlace = placesListDetail.places[selectedPlace]
-//        places = placesListDetail.placesData[chosenPlace]! as! [AnyObject]
-//        places = placesListDetail.placesData[chosenPlace]! as! [String]
-        
+
+        let lat = CLLocationDegrees(place.latCoordinate)
+        let long = CLLocationDegrees(place.longCoordinate)
         
         //-----------
         // Setup Map
         //-----------
         let location = CLLocationCoordinate2D(
-            latitude: CLLocationDegrees(placesDetail[selectedPlace].latCoordinate)!,
-            longitude: CLLocationDegrees(placesDetail[selectedPlace].longCoordinate)!
+            latitude: lat!,
+            longitude: long!
         )
         let span = MKCoordinateSpanMake(0.01, 0.01)
         let region = MKCoordinateRegion(center: location, span: span)
@@ -105,7 +116,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         // Create annotation
         let annotation = MKPointAnnotation()
         annotation.coordinate=location
-        annotation.title = placesDetail[selectedPlace].name
+        annotation.title = place.name
 //        annotation.subtitle="Open: 7am - 8pm"
         mapView.addAnnotation(annotation)
         
