@@ -113,17 +113,17 @@
     "Subway" : [ "40.006631", "-105.271078", "" ],
     "Telecommunications Center" : [ "40.006675", "-105.263074", "Building" ],
     "The Connection Bowling, Billards and Games" : [ "40.006501", "-105.271668", "" ],
-    "The UPS Store" : [ "40.003151", "-105.26213", "" ],
+    "The UPS Store" : [ "40.003151", "-105.26213", "Place" ],
     "Theatre and Dance" : [ "40.008154", "-105.273677", "Building" ],
-    "Trep Cafe" : [ "40.006036", "-105.263568", "Cafe" ],
-    "University Club" : [ "40.005443", "-105.270659", "Building" ],
-    "University Memorial Center (UMC)" : [ "40.006919", "-105.27162", "Building" ],
-    "University Theatre" : [ "40.008256", "-105.273593", "" ],
-    "Visual Arts Complex" : [ "40.007683", "-105.270533", "Building" ],
-    "Wardenburg Health Services" : [ "40.005372", "-105.268904", "Building" ],
-    "WeatherTech Cafe" : [ "40.004627", "-105.264458", "Cafe" ],
-    "Willard Hall" : [ "40.005254", "-105.266269", "Housing" ],
-    "William A Wise Law Library" : [ "40.001265", "-105.262103", "" ],
-    "Williams Village" : [ "39.998254", "-105.251007", "Housing" ]
+    "Trep Cafe" : [ "40.006036", "-105.263568", "Cafe", "trepcafe" ],
+    "University Club" : [ "40.005443", "-105.270659", "Building", "uniclub" ],
+    "University Memorial Center (UMC)" : [ "40.006919", "-105.27162", "Building", "umc" ],
+    "University Theatre" : [ "40.008256", "-105.273593", "Place", "unitheatre" ],
+    "Visual Arts Complex" : [ "40.007683", "-105.270533", "Building", "visualarts" ],
+    "Wardenburg Health Services" : [ "40.005372", "-105.268904", "Building", "wardenburg" ],
+    "WeatherTech Cafe" : [ "40.004627", "-105.264458", "Cafe", "weathertech" ],
+    "Willard Hall" : [ "40.005254", "-105.266269", "Housing", "willardhall" ],
+    "William A Wise Law Library" : [ "40.001265", "-105.262103", "Place", "lawlibrary" ],
+    "Williams Village" : [ "39.998254", "-105.251007", "Housing", "williamsvillage" ]
   }
 }
