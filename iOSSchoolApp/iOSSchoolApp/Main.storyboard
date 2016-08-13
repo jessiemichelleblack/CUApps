@@ -288,31 +288,32 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="AIp-Ph-1Tg">
-                                <rect key="frame" x="0.0" y="178" width="600" height="422"/>
+                                <rect key="frame" x="0.0" y="108" width="600" height="422"/>
                             </mapView>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Sjr-d8-iK6">
                                 <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KlU-rx-63O">
-                                <rect key="frame" x="251" y="125" width="98" height="30"/>
-                                <state key="normal" title="Get Directions"/>
-                                <connections>
-                                    <action selector="getDirections:" destination="Qry-3j-heZ" eventType="touchUpInside" id="sQC-6P-0Zz"/>
-                                </connections>
-                            </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" translatesAutoresizingMaskIntoConstraints="NO" id="56q-Eg-4Yg">
+                                <rect key="frame" x="20" y="552" width="560" height="29"/>
+                                <segments>
+                                    <segment title="Get Directions"/>
+                                    <segment title="Info"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="KlU-rx-63O" firstAttribute="top" secondItem="Sjr-d8-iK6" secondAttribute="bottom" constant="17" id="CNA-2r-Sru"/>
                             <constraint firstItem="Sjr-d8-iK6" firstAttribute="trailing" secondItem="AIp-Ph-1Tg" secondAttribute="trailing" id="DJ8-FN-aw1"/>
+                            <constraint firstItem="56q-Eg-4Yg" firstAttribute="centerX" secondItem="AIp-Ph-1Tg" secondAttribute="centerX" id="IOA-RA-rdu"/>
                             <constraint firstItem="Sjr-d8-iK6" firstAttribute="top" secondItem="8Zx-F5-mdR" secondAttribute="bottom" id="IUv-mg-cZQ"/>
                             <constraint firstAttribute="trailing" secondItem="AIp-Ph-1Tg" secondAttribute="trailing" id="PaK-0Q-fbC"/>
-                            <constraint firstItem="AIp-Ph-1Tg" firstAttribute="bottom" secondItem="qdx-aw-Cuk" secondAttribute="top" id="Tbg-EL-QDh"/>
+                            <constraint firstItem="56q-Eg-4Yg" firstAttribute="leading" secondItem="J9g-2F-fVn" secondAttribute="leadingMargin" id="Qtn-JG-3nL"/>
+                            <constraint firstItem="AIp-Ph-1Tg" firstAttribute="bottom" secondItem="qdx-aw-Cuk" secondAttribute="top" constant="-70" id="Tbg-EL-QDh"/>
                             <constraint firstItem="AIp-Ph-1Tg" firstAttribute="leading" secondItem="J9g-2F-fVn" secondAttribute="leading" id="WDY-lw-Ody"/>
-                            <constraint firstItem="AIp-Ph-1Tg" firstAttribute="top" secondItem="8Zx-F5-mdR" secondAttribute="bottom" constant="114" id="cXI-NH-tTn"/>
-                            <constraint firstItem="Sjr-d8-iK6" firstAttribute="centerX" secondItem="KlU-rx-63O" secondAttribute="centerX" id="hr9-gi-lkK"/>
+                            <constraint firstItem="AIp-Ph-1Tg" firstAttribute="top" secondItem="8Zx-F5-mdR" secondAttribute="bottom" constant="44" id="cXI-NH-tTn"/>
                             <constraint firstItem="Sjr-d8-iK6" firstAttribute="leading" secondItem="AIp-Ph-1Tg" secondAttribute="leading" id="jCJ-4i-otg"/>
+                            <constraint firstItem="56q-Eg-4Yg" firstAttribute="top" secondItem="AIp-Ph-1Tg" secondAttribute="bottom" constant="22" id="miQ-5o-27m"/>
                         </constraints>
                     </view>
                     <connections>

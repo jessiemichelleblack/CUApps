@@ -150,7 +150,6 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
         if segue.identifier == "placessegue" {
             let detailVC = segue.destinationViewController as! MapViewController
             let indexPath = tableView.indexPathForCell(sender as! UITableViewCell)!
-
             //sets the data for the destination controller
             detailVC.title = filteredNames[indexPath.row]
             detailVC.place = placesDict[filteredNames[indexPath.row]]!

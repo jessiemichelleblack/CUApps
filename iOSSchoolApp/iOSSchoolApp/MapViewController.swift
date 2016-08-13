@@ -17,22 +17,24 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     var place = Place()
     
     @IBAction func getDirections(sender: AnyObject) {
-//        if (UIApplication.sharedApplication().canOpenURL(NSURL(string:"comgooglemaps://")!)) {
-//            UIApplication.sharedApplication().openURL(NSURL(string:
-//                "comgooglemaps://?center=" + latString + "," + longString + "&zoom=14&views=traffic")!)
-//        } else {
-//            print("Can't use comgooglemaps://");
-//        }
-        let customURL = "comgooglemaps://"
-        if UIApplication.sharedApplication().canOpenURL(NSURL(string: customURL)!) {
-            UIApplication.sharedApplication().openURL(NSURL(string: customURL)!)
-        }
-        else {
-            let alert = UIAlertController(title: "Error", message: "Google maps not installed", preferredStyle: UIAlertControllerStyle.Alert)
-            let ok = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil)
-            alert.addAction(ok)
-            self.presentViewController(alert, animated:true, completion: nil)
-        }
+
+        let lat1 = place.latCoordinate
+        let lng1 = place.longCoordinate
+        
+        let latitute:CLLocationDegrees =  Double(lat1)!
+        let longitute:CLLocationDegrees =  Double(lng1)!
+        
+        let regionDistance:CLLocationDistance = 50
+        let coordinates = CLLocationCoordinate2DMake(latitute, longitute)
+        let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates, regionDistance, regionDistance)
+        let options = [
+            MKLaunchOptionsMapCenterKey: NSValue(MKCoordinate: regionSpan.center),
+            MKLaunchOptionsMapSpanKey: NSValue(MKCoordinateSpan: regionSpan.span)
+        ]
+        let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
+        let mapItem = MKMapItem(placemark: placemark)
+        mapItem.name = place.name
+        mapItem.openInMapsWithLaunchOptions(options)
     }
     
     override func viewDidLoad() {
