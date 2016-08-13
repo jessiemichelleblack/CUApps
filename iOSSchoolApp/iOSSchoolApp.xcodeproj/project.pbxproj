@@ -7,9 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7CE6A3E2D32860C0AC532364 /* Pods_iOSSchoolApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98E50A6B53B923F20D222697 /* Pods_iOSSchoolApp.framework */; };
 		7D7E35291D52339400864520 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7E35281D52339400864520 /* Place.swift */; };
-		7D89FAB01D5D8365004A52AE /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D89FAAF1D5D8365004A52AE /* Firebase.framework */; };
 		7DC219331D59FDAF0013317C /* D2LController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC219321D59FDAF0013317C /* D2LController.swift */; };
 		7DC219351D59FE250013317C /* MoodleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC219341D59FE250013317C /* MoodleController.swift */; };
 		7DE210E11D5CEBC400C04D37 /* myCUinfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE210E01D5CEBC400C04D37 /* myCUinfoController.swift */; };
@@ -26,7 +24,6 @@
 
 /* Begin PBXFileReference section */
 		7D7E35281D52339400864520 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
-		7D89FAAF1D5D8365004A52AE /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebase.framework; sourceTree = "<group>"; };
 		7DC219321D59FDAF0013317C /* D2LController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = D2LController.swift; sourceTree = "<group>"; };
 		7DC219341D59FE250013317C /* MoodleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoodleController.swift; sourceTree = "<group>"; };
 		7DE210E01D5CEBC400C04D37 /* myCUinfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myCUinfoController.swift; sourceTree = "<group>"; };
@@ -41,9 +38,6 @@
 		7DF2EF7B1D4AEC66001CE6DE /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		7DF2EF7D1D4AEF35001CE6DE /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		7DF2EF7F1D4BD3AD001CE6DE /* places.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = places.plist; sourceTree = "<group>"; };
-		98E50A6B53B923F20D222697 /* Pods_iOSSchoolApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSSchoolApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A9B960B7491CFFF69B5993B4 /* Pods-iOSSchoolApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSSchoolApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOSSchoolApp/Pods-iOSSchoolApp.release.xcconfig"; sourceTree = "<group>"; };
-		AB9423AC0B6A3619B0EB4DC4 /* Pods-iOSSchoolApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSSchoolApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOSSchoolApp/Pods-iOSSchoolApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,40 +45,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7D89FAB01D5D8365004A52AE /* Firebase.framework in Frameworks */,
-				7CE6A3E2D32860C0AC532364 /* Pods_iOSSchoolApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4099CC383296B7EB27B69190 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				AB9423AC0B6A3619B0EB4DC4 /* Pods-iOSSchoolApp.debug.xcconfig */,
-				A9B960B7491CFFF69B5993B4 /* Pods-iOSSchoolApp.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		719B59FD822DAF22A244FF00 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				98E50A6B53B923F20D222697 /* Pods_iOSSchoolApp.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		7DF2EF5B1D4AEA2F001CE6DE = {
 			isa = PBXGroup;
 			children = (
-				7D89FAAF1D5D8365004A52AE /* Firebase.framework */,
 				7DE210E21D5CF51B00C04D37 /* Default-568h@2x.png */,
 				7DF2EF661D4AEA30001CE6DE /* iOSSchoolApp */,
 				7DF2EF651D4AEA2F001CE6DE /* Products */,
-				4099CC383296B7EB27B69190 /* Pods */,
-				719B59FD822DAF22A244FF00 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -123,12 +95,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7DF2EF761D4AEA30001CE6DE /* Build configuration list for PBXNativeTarget "iOSSchoolApp" */;
 			buildPhases = (
-				6ECE04BE20FCC8053C51544F /* [CP] Check Pods Manifest.lock */,
 				7DF2EF601D4AEA2F001CE6DE /* Sources */,
 				7DF2EF611D4AEA2F001CE6DE /* Frameworks */,
 				7DF2EF621D4AEA2F001CE6DE /* Resources */,
-				468CF9D96A66413DEE65E78D /* [CP] Embed Pods Frameworks */,
-				21F61B4560B70D8CA8849AF1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -186,54 +155,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		21F61B4560B70D8CA8849AF1 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iOSSchoolApp/Pods-iOSSchoolApp-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		468CF9D96A66413DEE65E78D /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iOSSchoolApp/Pods-iOSSchoolApp-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6ECE04BE20FCC8053C51544F /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7DF2EF601D4AEA2F001CE6DE /* Sources */ = {
@@ -352,7 +273,6 @@
 		};
 		7DF2EF771D4AEA30001CE6DE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AB9423AC0B6A3619B0EB4DC4 /* Pods-iOSSchoolApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ENABLE_BITCODE = NO;
@@ -372,7 +292,6 @@
 		};
 		7DF2EF781D4AEA30001CE6DE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A9B960B7491CFFF69B5993B4 /* Pods-iOSSchoolApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ENABLE_BITCODE = NO;

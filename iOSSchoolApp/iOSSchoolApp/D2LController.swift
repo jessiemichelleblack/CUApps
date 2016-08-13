@@ -24,8 +24,8 @@ class D2LController: UIViewController {
         
         // Nav bar
         navigationController?.navigationBar.topItem?.title = "D2L"
-//        navigationController?.navigationBar.barTintColor = UIColor.blackColor()
-//        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        navigationController?.navigationBar.barTintColor = UIColor.blackColor()
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
     }
 
     override func didReceiveMemoryWarning() {

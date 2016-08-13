@@ -16,6 +16,9 @@ class ViewController: UIViewController {
 
     override func viewDidAppear(animated: Bool) {
         navigationController?.navigationBar.topItem!.title = "University of Colorado Boulder"
+        navigationController?.navigationBar.barTintColor = UIColor.blackColor()
+        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        
     }
     
     override func didReceiveMemoryWarning() {

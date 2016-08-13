@@ -24,8 +24,8 @@ class MoodleController: UIViewController {
         self.automaticallyAdjustsScrollViewInsets = false
         
         navigationController?.navigationBar.topItem?.title = "Moodle"
-//        navigationController?.navigationBar.barTintColor = UIColor.blackColor()
-//        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        navigationController?.navigationBar.barTintColor = UIColor.blackColor()
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
     }
 
     override func didReceiveMemoryWarning() {

@@ -24,6 +24,8 @@ class myCUinfoController: UIViewController {
         
         // Nav bar
         navigationController?.navigationBar.topItem?.title = "myCUinfo"
+        navigationController?.navigationBar.barTintColor = UIColor.blackColor()
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
     }
 
     override func didReceiveMemoryWarning() {

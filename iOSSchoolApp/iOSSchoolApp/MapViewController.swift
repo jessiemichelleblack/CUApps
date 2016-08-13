@@ -49,9 +49,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         //----------------
         // Navigation Bar
         //----------------
-        navigationController?.navigationBar.topItem!.title = "Engineering Center"
-        navigationController?.navigationItem.title = "Engineering Center"
+//        navigationController?.navigationBar.topItem!.title = "Engineering Center"
+//        navigationController?.navigationItem.title = "Engineering Center"
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.Plain, target:nil, action:nil)
+        self.navigationController?.navigationBar.barTintColor = UIColor.blackColor()
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
     }
 
     override func didReceiveMemoryWarning() {

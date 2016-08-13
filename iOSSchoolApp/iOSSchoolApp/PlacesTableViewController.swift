@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Firebase
 
 class PlacesTableViewController: UITableViewController, UISearchResultsUpdating, UISearchBarDelegate {
     
@@ -20,7 +19,6 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
     var filteredNames = [String]()
     let searchController = UISearchController(searchResultsController: nil)
     
-    var ref = Firebase(url:"https://cuapp-5d360.firebaseio.com/")
     
     
     //-----------------------
@@ -47,17 +45,23 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
     //-------------
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+//        AIzaSyAG8-CSFH9gZV3vfs5pAhE0pPJAMC5a99Q
+
+        //-----------
+        // Search bar
+        //-----------
         searchController.searchBar.scopeButtonTitles = ["All", "Housing", "Building", "Dining"]
         searchController.searchBar.delegate = self
         searchController.hidesNavigationBarDuringPresentation = false
+        searchController.dimsBackgroundDuringPresentation = true
         //--------
         // Navbar
         //--------
         navigationController?.navigationBar.topItem?.title = "Places"
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.Plain, target:nil, action:nil)
-//        navigationController?.navigationBar.barTintColor = UIColor.blackColor()
-//        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        navigationController?.navigationBar.barTintColor = UIColor.blackColor()
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         
         
         //------------
@@ -68,11 +72,7 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
         
-        
-        ref.observeEventType(.Value, withBlock: {
-            snapshot in
-            println("\(snapshot.key) -> \(snapshot.value)")
-        })
+
         
         //------------------
         // Load places plist
