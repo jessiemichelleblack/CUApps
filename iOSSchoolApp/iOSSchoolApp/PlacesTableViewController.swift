@@ -16,20 +16,17 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
     // Object variables
     var placesDict = [String : Place]() // Used as master store for all of the objects
     var placesArray = [String]() // Used as a master container for all of the place names
-//    var tempDict = [String : [String]]() // Needed as a helper to create the places dictionary
     
     // Firebase Variables
-    var tempPlacesArray = [String]()
-    var tempDict = [String:AnyObject]()
-    var tempPlacesDict = [String : Place]()
+
     
     // Search variables
     var filteredNames = [String]()
     let searchController = UISearchController(searchResultsController: nil)
     
     var ref = FIRDatabase.database().reference()
-    
-    
+    let placesSnapshot = FIRDataSnapshot()
+    var temp : FIRDataSnapshot!
     //-----------------------
     // Resize image to circle
     //-----------------------
@@ -49,41 +46,51 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
         return newImage
     }
     
-    
-    override func viewWillAppear(animated: Bool) {
-//        var tempDict = [String:AnyObject]()
-//        var tempPlacesDict = [String : Place]()
-//        var tempPlacesArray = [String]()
+    func configureDatabase(){
+        
+        
         
         ref.child("places").observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+            self.temp = snapshot
             
-            self.tempDict = snapshot.value as! [String:AnyObject]
-            for (name, valueObject) in self.tempDict {
-                //                    print(name)
-                //                    print(valueObject as! [AnyObject])
-                var values = valueObject as! [AnyObject]
-                if(values.count == 3){
-                    self.tempPlacesDict[name] = Place(newname: name, newlat: values[0] as! String, newlong: values[1] as! String, newtype: values[2] as! String)
-                }
-                else if(values.count == 4){ //Needed in case the place has a picture name associated with it
-                    self.tempPlacesDict[name] = Place(newname: name, newlat: values[0] as! String, newlong: values[1] as! String, newtype: values[2] as! String, newBuildingCode: values[3] as! String)
-                }
-                
-                self.tempPlacesArray.append(name)
-            }
-            self.tempPlacesArray.sortInPlace()
             //            print(tempPlacesArray)
             //filteredNames = placesArray
         }) { (error) in
             print(error.localizedDescription)
             
         }
+    }
+    
+    
+    //----------------
+    // View Did Appear
+    //----------------
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        var tempDict = [String:AnyObject]()
+//        var placesDict = [String : Place]()
+//        var placesArray = [String]()
         
-        print(tempPlacesArray)
-        placesDict=tempPlacesDict
-        placesArray = tempPlacesArray
+        tempDict = temp.value as! [String:AnyObject]
+        
+        for (name, valueObject) in tempDict {
+            var values = valueObject as! [String]
+            
+            if(values.count == 3){
+                placesDict[name] = Place(newname: name, newlat: values[0], newlong: values[1], newtype: values[2])
+            }
+            else if(values.count == 4){ //Needed in case the place has a picture name associated with it
+                placesDict[name] = Place(newname: name, newlat: values[0], newlong: values[1], newtype: values[2], newBuildingCode: values[3])
+            }
+            
+            placesArray.append(name)
+        }
+        
+        
+        placesArray.sortInPlace()
+        
         filteredNames = placesArray
-        print(filteredNames)
+        self.tableView.reloadData()
     }
     
     //-------------
@@ -92,7 +99,8 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(tempPlacesArray)
+        configureDatabase()
+        
         //-----------
         // Search bar
         //-----------
@@ -199,12 +207,13 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
 
         let place = filteredNames[indexPath.row]
         let placeObject = placesDict[place]
-        print(filteredNames)
+    
         
         cell.textLabel?.text = place
         navigationController?.navigationBar.topItem?.title = "Places"
-        cell.detailTextLabel?.text = placeObject!.placeType
         
+        cell.detailTextLabel?.text = placeObject?.buildingCode
+        print(placeObject?.buildingCode)
         let image = UIImage(named: "default")
         
 //        if(placeObject!.buildingCode != ""){
