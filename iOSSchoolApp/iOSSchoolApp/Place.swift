@@ -13,7 +13,7 @@ class Place {
     var latCoordinate : String
     var longCoordinate : String
     var placeType : String
-    var pictureName : String
+    var buildingCode : String
     
     //Default constructor
     init (){
@@ -21,24 +21,24 @@ class Place {
         self.latCoordinate = ""
         self.longCoordinate = ""
         self.placeType = ""
-        self.pictureName = ""
+        self.buildingCode = ""
     }
     
-    //Constructor for items without a picture
+    //Constructor for items without a code
     init (newname : String, newlat : String, newlong : String, newtype : String){
         self.name = newname
         self.latCoordinate = newlat
         self.longCoordinate = newlong
         self.placeType = newtype
-        self.pictureName = ""
+        self.buildingCode = ""
     }
     
     //Constructor for items that do have a picture
-    init (newname : String, newlat : String, newlong : String, newtype : String, newPictureName : String){
+    init (newname : String, newlat : String, newlong : String, newtype : String, newBuildingCode : String){
         self.name = newname
         self.latCoordinate = newlat
         self.longCoordinate = newlong
         self.placeType = newtype
-        self.pictureName = newPictureName
+        self.buildingCode = newBuildingCode
     }
 }

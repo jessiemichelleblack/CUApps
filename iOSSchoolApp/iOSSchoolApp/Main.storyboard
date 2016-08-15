@@ -294,12 +294,18 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" translatesAutoresizingMaskIntoConstraints="NO" id="56q-Eg-4Yg">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="56q-Eg-4Yg">
                                 <rect key="frame" x="20" y="552" width="560" height="29"/>
                                 <segments>
                                     <segment title="Get Directions"/>
                                     <segment title="Info"/>
                                 </segments>
+                                <connections>
+                                    <action selector="seggy:" destination="Qry-3j-heZ" eventType="valueChanged" id="g38-Pd-IrT"/>
+                                    <segue destination="2P2-K0-Ems" kind="popoverPresentation" identifier="getinfo" popoverAnchorView="56q-Eg-4Yg" id="cpe-Of-Qlg">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -318,11 +324,45 @@
                     </view>
                     <connections>
                         <outlet property="mapView" destination="AIp-Ph-1Tg" id="LWk-F9-20e"/>
+                        <outlet property="seggyVar" destination="56q-Eg-4Yg" id="sgs-ee-NmH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hEv-du-cem" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4170" y="-140"/>
+        </scene>
+        <!--Get Info View Controller-->
+        <scene sceneID="6ZC-4A-vgB">
+            <objects>
+                <viewController id="2P2-K0-Ems" customClass="GetInfoViewController" customModule="iOSSchoolApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KNP-f7-6du"/>
+                        <viewControllerLayoutGuide type="bottom" id="cwk-Vi-SwQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Scd-zH-tTH">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FQU-6O-kyw">
+                                <rect key="frame" x="20" y="28" width="560" height="217"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rek-Pi-z9s">
+                                <rect key="frame" x="20" y="261" width="560" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="infoPic" destination="FQU-6O-kyw" id="x5I-cv-5bR"/>
+                        <outlet property="infoTitle" destination="rek-Pi-z9s" id="nla-FR-XiJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hiV-mH-f7c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4809" y="-140"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="HFt-wU-7V7">
