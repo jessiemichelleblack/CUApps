@@ -48,21 +48,21 @@ public class PlacesList extends AppCompatActivity {
     @Override protected void onResume(){
         super.onResume();
         myRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        for (DataSnapshot messageSnapshot: dataSnapshot.getChildren()) {
-                            String placeName = messageSnapshot.getKey();
-                            placesList.add(placeName);
-                            ArrayList<String> placeValues = (ArrayList<String>) messageSnapshot.getValue();
-                            placesContainer.put(placeName, placeValues);
-                        }
-                        adapter.notifyDataSetChanged();
-                    }
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot messageSnapshot: dataSnapshot.getChildren()) {
+                    String placeName = messageSnapshot.getKey();
+                    placesList.add(placeName);
+                    ArrayList<String> placeValues = (ArrayList<String>) messageSnapshot.getValue();
+                    placesContainer.put(placeName, placeValues);
+                }
+                adapter.notifyDataSetChanged();
+            }
 
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-                        //Log.w(TAG, "getUser:onCancelled", databaseError.toException());
-                    }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                //Log.w(TAG, "getUser:onCancelled", databaseError.toException());
+            }
         });
 
 
