@@ -17,49 +17,153 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
     var placesDict = [String : Place]() // Used as master store for all of the objects
     var placesArray = [String]() // Used as a master container for all of the place names
     
+    
     // Firebase Variables
-
+    var ref = FIRDatabase.database().reference()
+    let placesSnapshot = FIRDataSnapshot()
+    var temp : FIRDataSnapshot!
+    let storage = FIRStorage.storage()
+    
     
     // Search variables
     var filteredNames = [String]()
     let searchController = UISearchController(searchResultsController: nil)
     
-    var ref = FIRDatabase.database().reference()
-    let placesSnapshot = FIRDataSnapshot()
-    var temp : FIRDataSnapshot!
+    
+    
     //-----------------------
     // Resize image to circle
     //-----------------------
     func resizeImage(image:UIImage, toTheSize size:CGSize)->UIImage{
-        
-        
         let scale = CGFloat(max(size.width/image.size.width, size.height/image.size.height))
         let width:CGFloat  = image.size.width * scale
         let height:CGFloat = image.size.height * scale
         
         let rr:CGRect = CGRectMake( 0, 0, width, height)
-        
         UIGraphicsBeginImageContextWithOptions(size, false, 0)
         image.drawInRect(rr)
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
+        
         return newImage
     }
     
-    func configureDatabase(){
+    func getImages(){
+        var imagesArray : [UIImage] = []
         
+        let storageRef = storage.referenceForURL("gs://cuapp-5d360.appspot.com")
+
+        // ADEN HALL
+        let adenhall = storageRef.child("places/aden.png")
+        adenhall.dataWithMaxSize(1 * 300 * 300) { (data, error) -> Void in
+            if (error != nil) {
+                // an error occurred
+            } else {
+                let adenImage : UIImage! = UIImage(data: data!)
+                imagesArray.append(adenImage)
+            }
+        }
         
+        // ANDREWS HALL
+        let andrewshall = storageRef.child("places/andrews.png")
+        andrewshall.dataWithMaxSize(1 * 300 * 300) { (data, error) -> Void in
+            if (error != nil) {
+                // an error occurred
+            } else {
+                let andrewImage : UIImage! = UIImage(data: data!)
+                imagesArray.append(andrewImage)
+            }
+        }
         
-        ref.child("places").observeSingleEventOfType(.Value, withBlock: { (snapshot) in
-            self.temp = snapshot
-            
-            //            print(tempPlacesArray)
-            //filteredNames = placesArray
-        }) { (error) in
-            print(error.localizedDescription)
-            
+        // ARNETT HALL
+        let arnetthall = storageRef.child("places/arnett.png")
+        arnetthall.dataWithMaxSize(1 * 300 * 300) { (data, error) -> Void in
+            if (error != nil) {
+                // an error occurred
+            } else {
+                let arnettImage : UIImage! = UIImage(data: data!)
+                imagesArray.append(arnettImage)
+            }
+        }
+        
+        // ATLAS
+        let atlas = storageRef.child("places/atlas.png")
+        atlas.dataWithMaxSize(1 * 300 * 300) { (data, error) -> Void in
+            if (error != nil) {
+                // an error occurred
+            } else {
+                let atlasImage : UIImage! = UIImage(data: data!)
+                imagesArray.append(atlasImage)
+            }
+        }
+        
+        // BAKER HALL
+        let bakerhall = storageRef.child("places/baker.png")
+        bakerhall.dataWithMaxSize(1 * 300 * 300) { (data, error) -> Void in
+            if (error != nil) {
+                // an error occurred
+            } else {
+                let bakerImage : UIImage! = UIImage(data: data!)
+                imagesArray.append(bakerImage)
+            }
+        }
+        
+        // BALCH FIELDHOUSE
+        let balch = storageRef.child("places/balch.png")
+        balch.dataWithMaxSize(1 * 300 * 300) { (data, error) -> Void in
+            if (error != nil) {
+                // an error occurred
+            } else {
+                let balchImage : UIImage! = UIImage(data: data!)
+                imagesArray.append(balchImage)
+            }
+        }
+        
+        // BEARCREEK APARTMENTS
+        let bearcreek = storageRef.child("places/bearcreek.png")
+        bearcreek.dataWithMaxSize(1 * 300 * 300) { (data, error) -> Void in
+            if (error != nil) {
+                // an error occurred
+            } else {
+                let bearcreekImage : UIImage! = UIImage(data: data!)
+                imagesArray.append(bearcreekImage)
+            }
+        }
+        
+        // BENSON EARTH SCIENCES
+        let benson = storageRef.child("places/benson.png")
+        benson.dataWithMaxSize(1 * 300 * 300) { (data, error) -> Void in
+            if (error != nil) {
+                // an error occurred
+            } else {
+                let bensonImage : UIImage! = UIImage(data: data!)
+                imagesArray.append(bensonImage)
+            }
+        }
+        
+        // BOOKSTORE
+        let bookstore = storageRef.child("places/bookstore.png")
+        bookstore.dataWithMaxSize(1 * 300 * 300) { (data, error) -> Void in
+            if (error != nil) {
+                // an error occurred
+            } else {
+                let bookstoreImage : UIImage! = UIImage(data: data!)
+                imagesArray.append(bookstoreImage)
+            }
         }
     }
+    
+    //-------------------
+    // Configure Database
+    //-------------------
+    func configureDatabase(){
+        ref.child("places").observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+            self.temp = snapshot
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+    }
+    
     
     
     //----------------
@@ -67,12 +171,10 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
     //----------------
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+
+        // Parse through data
         var tempDict = [String:AnyObject]()
-//        var placesDict = [String : Place]()
-//        var placesArray = [String]()
-        
         tempDict = temp.value as! [String:AnyObject]
-        
         for (name, valueObject) in tempDict {
             var values = valueObject as! [String]
             
@@ -85,11 +187,9 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
             
             placesArray.append(name)
         }
-        
-        
         placesArray.sortInPlace()
-        
         filteredNames = placesArray
+        // Reloads TableView
         self.tableView.reloadData()
     }
     
@@ -101,6 +201,10 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
         
         configureDatabase()
         
+        
+
+        
+        
         //-----------
         // Search bar
         //-----------
@@ -108,6 +212,10 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
         searchController.searchBar.delegate = self
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.dimsBackgroundDuringPresentation = true
+        searchController.searchResultsUpdater = self
+        definesPresentationContext = true
+        tableView.tableHeaderView = searchController.searchBar
+        
         
         
         //--------
@@ -118,15 +226,7 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
         navigationController?.navigationBar.barTintColor = UIColor.blackColor()
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         
-        
-        //------------
-        // Search bar
-        //------------
-        searchController.searchResultsUpdater = self
-        searchController.dimsBackgroundDuringPresentation = false
-        definesPresentationContext = true
-        tableView.tableHeaderView = searchController.searchBar
-        
+
 //        print(ref.child("places"))
 //        var tempDict = [String:AnyObject]()
 //        var tempPlacesDict = [String : Place]()
@@ -186,7 +286,6 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
@@ -213,20 +312,20 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
         navigationController?.navigationBar.topItem?.title = "Places"
         
         cell.detailTextLabel?.text = placeObject?.buildingCode
-        print(placeObject?.buildingCode)
-        let image = UIImage(named: "default")
         
-//        if(placeObject!.buildingCode != ""){
-//            image = UIImage(named: placeObject!.buildingCode)
-//        }
+        
+        var image : UIImage
+
+        image = UIImage(named: "default")!
+        image = UIImage(named: placeObject!.name.lowercaseString)!
 
 
-        let newImage = resizeImage(image!, toTheSize: CGSizeMake(85, 85))
-        
-        let cellImageLayer: CALayer?  = cell.imageView!.layer
-        cellImageLayer!.cornerRadius = cellImageLayer!.frame.size.width / 2
-        cellImageLayer!.masksToBounds = true
+        let newImage = resizeImage(image, toTheSize: CGSizeMake(90, 90))
+//        let cellImageLayer: CALayer?  = cell.imageView!.layer
+//        cellImageLayer!.cornerRadius = cellImageLayer!.frame.size.width / 2
+//        cellImageLayer!.masksToBounds = true
         cell.imageView!.image = newImage
+        
         return cell
     }
  
