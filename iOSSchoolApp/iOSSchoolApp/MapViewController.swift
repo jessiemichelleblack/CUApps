@@ -9,14 +9,57 @@
 import UIKit
 import MapKit
 
-class MapViewController: UIViewController, CLLocationManagerDelegate {
+class MapViewController: UIViewController, CLLocationManagerDelegate, UIPopoverPresentationControllerDelegate {
 
     @IBOutlet var mapView: MKMapView!
     let locationManager = CLLocationManager()
     
     var place = Place()
     
-    @IBAction func getDirections(sender: AnyObject) {
+    @IBOutlet var seggyVar: UISegmentedControl!
+    
+    // Segmented Control to get directions or info
+    @IBAction func seggy(sender: UISegmentedControl) {
+        switch seggyVar.selectedSegmentIndex
+        {
+        case 0:
+            getDirections()
+        case 1:
+            print("Get Info selected")
+        default:
+            break; 
+        }
+    }
+    
+//    func popoverPresentationControllerDidDismissPopover(popoverPresentationController: UIPopoverPresentationController) {
+//        //do som stuff from the popover
+//        print("hey")
+//    }
+    
+    
+    //------------------
+    // Prepare for Segue
+    //------------------
+    override func prepareForSegue(segue: UIStoryboardSegue, sender:
+        AnyObject?) {
+        if segue.identifier == "getinfo" {
+            if let controller = segue.destinationViewController as? GetInfoViewController {
+                controller.popoverPresentationController!.delegate = self
+                controller.preferredContentSize = CGSize(width: 320, height: 186)
+                
+            }
+        }
+    }
+    
+    
+    func adaptivePresentationStyleForPresentationController(PC: UIPresentationController) -> UIModalPresentationStyle {
+        // This *forces* a popover to be displayed on the iPhone
+        print("hi")
+        return .None
+    }
+    
+    // Open Apple Maps from segmented control
+    func getDirections() {
 
         let lat1 = place.latCoordinate
         let lng1 = place.longCoordinate
@@ -35,6 +78,14 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         let mapItem = MKMapItem(placemark: placemark)
         mapItem.name = place.name
         mapItem.openInMapsWithLaunchOptions(options)
+    }
+    
+
+
+    
+    // Get info segmented control pressed
+    func getInfo(){
+        
     }
     
     override func viewDidLoad() {

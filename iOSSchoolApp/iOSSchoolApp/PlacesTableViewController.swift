@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PlacesTableViewController: UITableViewController, UISearchResultsUpdating, UISearchBarDelegate {
+class PlacesTableViewController: UITableViewController, UISearchResultsUpdating, UISearchBarDelegate, UIPopoverPresentationControllerDelegate {
     
     // Object variables
     var placesDict = [String : Place]() // Used as master store for all of the objects
@@ -153,6 +153,10 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
             //sets the data for the destination controller
             detailVC.title = filteredNames[indexPath.row]
             detailVC.place = placesDict[filteredNames[indexPath.row]]!
+            
+//            detailVC.popoverPresentationController!.delegate = self
+//            detailVC.preferredContentSize = CGSize(width: 320, height: 186)
+            
         } else if segue.identifier == "moodle" {
             let vc = segue.destinationViewController as UIViewController
             vc.navigationItem.title = "Moodle"

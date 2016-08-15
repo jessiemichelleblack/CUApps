@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D62EDFF1D5FE736008C1855 /* GetInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D62EDFE1D5FE736008C1855 /* GetInfoViewController.swift */; };
 		7D7E35291D52339400864520 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7E35281D52339400864520 /* Place.swift */; };
 		7DC219331D59FDAF0013317C /* D2LController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC219321D59FDAF0013317C /* D2LController.swift */; };
 		7DC219351D59FE250013317C /* MoodleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC219341D59FE250013317C /* MoodleController.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7D62EDFE1D5FE736008C1855 /* GetInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetInfoViewController.swift; sourceTree = "<group>"; };
 		7D7E35281D52339400864520 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		7DC219321D59FDAF0013317C /* D2LController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = D2LController.swift; sourceTree = "<group>"; };
 		7DC219341D59FE250013317C /* MoodleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoodleController.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				7DF2EF7B1D4AEC66001CE6DE /* MapViewController.swift */,
 				7DF2EF791D4AEB35001CE6DE /* PlacesTableViewController.swift */,
 				7DF2EF7D1D4AEF35001CE6DE /* Main.storyboard */,
+				7D62EDFE1D5FE736008C1855 /* GetInfoViewController.swift */,
 				7DE210E01D5CEBC400C04D37 /* myCUinfoController.swift */,
 				7DC219341D59FE250013317C /* MoodleController.swift */,
 				7DC219321D59FDAF0013317C /* D2LController.swift */,
@@ -167,6 +170,7 @@
 				7DF2EF681D4AEA30001CE6DE /* AppDelegate.swift in Sources */,
 				7DC219351D59FE250013317C /* MoodleController.swift in Sources */,
 				7D7E35291D52339400864520 /* Place.swift in Sources */,
+				7D62EDFF1D5FE736008C1855 /* GetInfoViewController.swift in Sources */,
 				7DF2EF7A1D4AEB35001CE6DE /* PlacesTableViewController.swift in Sources */,
 				7DF2EF7C1D4AEC66001CE6DE /* MapViewController.swift in Sources */,
 			);
