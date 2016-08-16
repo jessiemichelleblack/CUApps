@@ -8,7 +8,7 @@ jsonData = json.load(jsonFile)
 places = jsonData["places"]
 
 for item in places:
-	#places[item] = newArray
-	print item
+	if places[item][0] == "default":
+		print item
 
 jsonFile.close()
