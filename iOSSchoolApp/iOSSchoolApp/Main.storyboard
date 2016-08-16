@@ -260,6 +260,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" header="YES"/>
+                                </accessibility>
                                 <connections>
                                     <segue destination="Qry-3j-heZ" kind="show" identifier="placessegue" id="Qsz-lV-VjX"/>
                                 </connections>

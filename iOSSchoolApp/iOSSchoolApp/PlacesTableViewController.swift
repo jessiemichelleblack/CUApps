@@ -77,21 +77,21 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
         var defaultimage : UIImage?
         
         // Get Default Pic
-        let defaultPic = storageRef.child("places/default.png")
-        defaultPic.dataWithMaxSize(1 * 1000 * 1000) { (data, error) -> Void in
-            if (error != nil) {
-                print(error)
-            } else {
-                defaultimage = UIImage(data: data!)!
-            }
-        }
+//        let defaultPic = storageRef.child("places/default.png")
+//        defaultPic.dataWithMaxSize(1 * 1000 * 1000) { (data, error) -> Void in
+//            if (error != nil) {
+//                print(error)
+//            } else {
+//                defaultimage = UIImage(data: data!)!
+//            }
+//        }
         
         // Get all images
         for each in self.placesArray {
             let placeObject = self.placesDict[each]
             
             if placeObject?.imageName == "default" {
-                self.placesDict[each]?.image = defaultimage
+//                self.placesDict[each]?.image = defaultimage
             } else {
                 let pic = storageRef.child("places/" + (placeObject?.imageName)! + ".png")
                 pic.dataWithMaxSize(1 * 300 * 300) { (data, error) -> Void in
@@ -146,7 +146,7 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
 //            self.getImages()
 ////            self.tableView.reloadData()
 //        })
-//        tableView.reloadData()
+        tableView.reloadData()
     }
 
     
@@ -182,9 +182,12 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
         searchController.searchBar.scopeButtonTitles = ["All", "Housing", "Building", "Dining"]
         searchController.searchBar.delegate = self
         searchController.hidesNavigationBarDuringPresentation = false
-        searchController.dimsBackgroundDuringPresentation = true
+        searchController.dimsBackgroundDuringPresentation = false
         searchController.searchResultsUpdater = self
-        searchController.searchBar.becomeFirstResponder()
+        self.view.addSubview(self.searchController.searchBar)
+        self.searchController.searchBar.sizeToFit()
+        searchController.searchBar.bringSubviewToFront(self.view)
+//        self.searchController.searchBar.frame.size.width = self.view.frame.size.width
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
         
