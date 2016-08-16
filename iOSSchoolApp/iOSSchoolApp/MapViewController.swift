@@ -15,6 +15,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIPopoverP
     let locationManager = CLLocationManager()
     
     var place = Place()
+    var image : UIImage?
+    var hours : String = ""
+    var name : String = ""
+    var popover: MapViewController? = nil
     
     @IBOutlet var seggyVar: UISegmentedControl!
     
@@ -25,16 +29,15 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIPopoverP
         case 0:
             getDirections()
         case 1:
-            print("Get Info selected")
+            func presentationController(controller: UIPresentationController, viewControllerForAdaptivePresentationStyle style: UIModalPresentationStyle) -> UIViewController? {
+            return UINavigationController(rootViewController: controller.presentedViewController)
+            }
         default:
             break; 
         }
     }
     
-//    func popoverPresentationControllerDidDismissPopover(popoverPresentationController: UIPopoverPresentationController) {
-//        //do som stuff from the popover
-//        print("hey")
-//    }
+    
     
     
     //------------------
@@ -46,15 +49,40 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIPopoverP
             if let controller = segue.destinationViewController as? GetInfoViewController {
                 controller.popoverPresentationController!.delegate = self
                 controller.preferredContentSize = CGSize(width: 320, height: 186)
-                
+                controller.hours = hours
+                controller.image = image
             }
         }
     }
     
+//    func getInfo() {
+//
+//        let controller = storyboard?.instantiateViewControllerWithIdentifier("GetCategory") as! MapViewController
+//        
+//        
+////        controller.delegate = self
+//        controller.hours = hours
+//        
+//        
+//        controller.modalPresentationStyle = .Popover
+//        if let popoverController = controller.popoverPresentationController {
+//            popoverController.permittedArrowDirections = .Any
+//            popoverController.delegate = self
+//        }
+//        presentViewController(controller, animated: true, completion: nil)
+//    }
+    
+    // Get info segmented control pressed
+//    func getInfo(){
+//        performSegueWithIdentifier("getinfo", sender: self)
+//        
+//    }
+    
+    
+    
     
     func adaptivePresentationStyleForPresentationController(PC: UIPresentationController) -> UIModalPresentationStyle {
         // This *forces* a popover to be displayed on the iPhone
-        print("hi")
         return .None
     }
     
@@ -83,10 +111,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UIPopoverP
 
 
     
-    // Get info segmented control pressed
-    func getInfo(){
-        
-    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

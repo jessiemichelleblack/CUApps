@@ -281,7 +281,7 @@
         <!--Map View Controller-->
         <scene sceneID="Xe3-y7-I9l">
             <objects>
-                <viewController id="Qry-3j-heZ" customClass="MapViewController" customModule="iOSSchoolApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewCategory" id="Qry-3j-heZ" customClass="MapViewController" customModule="iOSSchoolApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8Zx-F5-mdR"/>
                         <viewControllerLayoutGuide type="bottom" id="qdx-aw-Cuk"/>
@@ -297,7 +297,7 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="56q-Eg-4Yg">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" momentary="YES" translatesAutoresizingMaskIntoConstraints="NO" id="56q-Eg-4Yg">
                                 <rect key="frame" x="20" y="552" width="560" height="29"/>
                                 <segments>
                                     <segment title="Get Directions"/>
@@ -305,7 +305,7 @@
                                 </segments>
                                 <connections>
                                     <action selector="seggy:" destination="Qry-3j-heZ" eventType="valueChanged" id="g38-Pd-IrT"/>
-                                    <segue destination="2P2-K0-Ems" kind="popoverPresentation" identifier="getinfo" popoverAnchorView="56q-Eg-4Yg" id="cpe-Of-Qlg">
+                                    <segue destination="2P2-K0-Ems" kind="popoverPresentation" identifier="getinfo" popoverAnchorView="56q-Eg-4Yg" id="tNz-Tf-Pym">
                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                     </segue>
                                 </connections>
@@ -346,20 +346,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FQU-6O-kyw">
-                                <rect key="frame" x="20" y="28" width="560" height="217"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rek-Pi-z9s">
-                                <rect key="frame" x="20" y="261" width="560" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rek-Pi-z9s">
+                                <rect key="frame" x="15" y="559" width="560" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="mv4-ye-VbP"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rek-Pi-z9s" firstAttribute="leading" secondItem="Scd-zH-tTH" secondAttribute="leadingMargin" constant="-5" id="O4f-GY-c34"/>
+                            <constraint firstAttribute="bottom" secondItem="rek-Pi-z9s" secondAttribute="bottom" constant="20" symbolic="YES" id="mQZ-kw-Jra"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rek-Pi-z9s" secondAttribute="trailing" constant="5" id="s9f-Hz-fqh"/>
+                        </constraints>
                     </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="600" height="600"/>
                     <connections>
-                        <outlet property="infoPic" destination="FQU-6O-kyw" id="x5I-cv-5bR"/>
                         <outlet property="infoTitle" destination="rek-Pi-z9s" id="nla-FR-XiJ"/>
                     </connections>
                 </viewController>

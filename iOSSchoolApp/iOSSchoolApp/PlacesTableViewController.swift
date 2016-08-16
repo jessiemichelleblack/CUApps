@@ -153,7 +153,7 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        configureDatabase()
+        
     }
     
     
@@ -173,7 +173,7 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
         
         
     
-        
+        configureDatabase()
         
         
         //-----------
@@ -264,14 +264,8 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
             //sets the data for the destination controller
             detailVC.title = filteredNames[indexPath.row]
             detailVC.place = placesDict[filteredNames[indexPath.row]]!
-            
-//            detailVC.popoverPresentationController!.delegate = self
-//            detailVC.preferredContentSize = CGSize(width: 320, height: 186)
-            
-        } else if segue.identifier == "moodle" {
-            let vc = segue.destinationViewController as UIViewController
-            vc.navigationItem.title = "Moodle"
-            navigationItem.title = "Home"
+            detailVC.hours = "Hours Today: 9:00AM - 5:00PM"
+            detailVC.image = placesDict[filteredNames[indexPath.row]]?.image
         }
     }
     
