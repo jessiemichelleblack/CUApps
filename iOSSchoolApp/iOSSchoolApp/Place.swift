@@ -26,6 +26,7 @@ class Place {
         self.longCoordinate = ""
         self.placeType = ""
         self.buildingCode = ""
+        
     }
     
     //Constructor for items without a building code
@@ -47,6 +48,7 @@ class Place {
         self.longCoordinate = newlong
         self.placeType = newtype
         self.buildingCode = newBuildingCode
+        
         
     }
 }

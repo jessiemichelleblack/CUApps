@@ -18,7 +18,7 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
     var placesArray = [String]() // Used as a master container for all of the place names
     var imagesArray : [AnyObject] = []
     
-    
+
     // Firebase Variables
     var ref = FIRDatabase.database().reference()
     let placesSnapshot = FIRDataSnapshot()
@@ -30,7 +30,11 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
     var filteredNames = [String]()
     let searchController = UISearchController(searchResultsController: nil)
     
+    // Spinny Thingy
+    let indicator:UIActivityIndicatorView = UIActivityIndicatorView  (activityIndicatorStyle: UIActivityIndicatorViewStyle.Gray)
     
+    
+
     
     //-----------------------
     // Resize image to circle
@@ -49,44 +53,11 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
         return newImage
     }
     
-//    func getImages(){
-//        
-//        
-////        let storageRef = storage.referenceForURL("gs://cuapp-5d360.appspot.com")
-//
-//        // ADEN HALL
-//        let adenhall = storageRef.child("places/aden.png")
-//        adenhall.dataWithMaxSize(1 * 300 * 300) { (data, error) -> Void in
-//            if (error != nil) {
-//                // an error occurred
-//            } else {
-//                let adenImage : UIImage! = UIImage(data: data!)
-//                self.imagesArray.append(adenImage)
-//            }
-//        }
-//
-//        
-//        
-//        
-//        
-//        
-//        // DEFAULT
-//        let defaultpic = storageRef.child("places/" +  + ".png")
-//        defaultpic.dataWithMaxSize(1 * 300 * 300) { (data, error) -> Void in
-//            if (error != nil) {
-//                // an error occurred
-//            } else {
-//                let defaultImage : UIImage! = UIImage(data: data!)
-//                self.imagesArray.append(defaultImage)
-//            }
-//        }
-//        
-//        print(imagesArray) //currently null
-//    }
+
     
-    //-------------------
-    // Configure Database
-    //-------------------
+//    //-------------------
+//    // Configure Database
+//    //-------------------
     func configureDatabase(){
         ref.child("places").observeSingleEventOfType(.Value, withBlock: { (snapshot) in
             self.temp = snapshot
@@ -121,7 +92,6 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
             
             if placeObject?.imageName == "default" {
                 self.placesDict[each]?.image = defaultimage
-               continue
             } else {
                 let pic = storageRef.child("places/" + (placeObject?.imageName)! + ".png")
                 pic.dataWithMaxSize(1 * 300 * 300) { (data, error) -> Void in
@@ -134,6 +104,10 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
                 }
             }
         }
+        tableView.reloadData()
+        
+        self.indicator.stopAnimating()
+        self.indicator.hidesWhenStopped = true
     }
     
     
@@ -145,29 +119,41 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
         super.viewDidAppear(animated)
         var tempDict = [String:AnyObject]()
         
+        
         // Parse through data
         if placesArray.isEmpty == true {
             tempDict = temp.value as! [String:AnyObject]
-        
+            
             for (name, valueObject) in tempDict {
                 var values = valueObject as! [String]
-            
+                
                 if(values.count == 4){
                     placesDict[name] = Place(newimage: values[0], newname: name, newlat: values[1], newlong: values[2], newtype: values[3])
                 }
                 else if(values.count == 5){ //Needed in case the place has a picture name associated with it
                     placesDict[name] = Place(newimage: values[0], newname: name, newlat: values[1], newlong: values[2], newtype: values[3], newBuildingCode: values[4])
                 }
-            
+                
                 placesArray.append(name)
             }
             
             placesArray.sortInPlace()
             filteredNames = placesArray
-        
+            
         }
         getImages()
-        self.tableView.reloadData()
+//        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), { () -> Void in
+//            self.getImages()
+////            self.tableView.reloadData()
+//        })
+//        tableView.reloadData()
+    }
+
+    
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        configureDatabase()
     }
     
     
@@ -178,10 +164,16 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configureDatabase()
+        indicator.color = UIColor .grayColor()
+        indicator.frame = CGRectMake(0.0, 0.0, 100.0, 100.0)
+        indicator.center = self.view.center
+        self.view.addSubview(indicator)
+        indicator.bringSubviewToFront(self.view)
+        indicator.startAnimating()
         
-
-
+        
+    
+        
         
         
         //-----------
@@ -192,6 +184,7 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.dimsBackgroundDuringPresentation = true
         searchController.searchResultsUpdater = self
+        searchController.searchBar.becomeFirstResponder()
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
         
@@ -204,61 +197,6 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.Plain, target:nil, action:nil)
         navigationController?.navigationBar.barTintColor = UIColor.blackColor()
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-        
-
-//        print(ref.child("places"))
-//        var tempDict = [String:AnyObject]()
-//        var tempPlacesDict = [String : Place]()
-//        var tempPlacesArray = [String]()
-//        
-//        ref.child("places").observeSingleEventOfType(.Value, withBlock: { (snapshot) in
-//
-//                tempDict = snapshot.value as! [String:AnyObject]
-//                for (name, valueObject) in tempDict {
-////                    print(name)
-////                    print(valueObject as! [AnyObject])
-//                    var values = valueObject as! [AnyObject]
-//                    if(values.count == 3){
-//                        tempPlacesDict[name] = Place(newname: name, newlat: values[0] as! String, newlong: values[1] as! String, newtype: values[2] as! String)
-//                    }
-//                    else if(values.count == 4){ //Needed in case the place has a picture name associated with it
-//                        tempPlacesDict[name] = Place(newname: name, newlat: values[0] as! String, newlong: values[1] as! String, newtype: values[2] as! String, newPictureName: values[3] as! String)
-//                    }
-// 
-//                    tempPlacesArray.append(name)
-//                }
-//                tempPlacesArray.sortInPlace()
-////            print(tempPlacesArray)
-//                //filteredNames = placesArray
-//            }) { (error) in
-//                print(error.localizedDescription)
-//                
-//        }
-//        print(tempPlacesArray)
-//        placesDict=tempPlacesDict
-//        placesArray = tempPlacesArray
-//        filteredNames = placesArray
-//        print(filteredNames)
-        //print(ref.child("places").O
-        //------------------
-        // Load places plist
-        //------------------
-        /*
-        let path = NSBundle.mainBundle().pathForResource("places", ofType: "plist")
-        tempDict = NSDictionary(contentsOfFile: path!) as! [String: [String]]
-        for (name, values) in tempDict {
-            if(values.count == 3){
-                placesDict[name] = Place(newname: name, newlat: values[0], newlong: values[1], newtype: values[2])
-            }
-            else if(values.count == 4){ //Needed in case the place has a picture name associated with it
-                placesDict[name] = Place(newname: name, newlat: values[0], newlong: values[1], newtype: values[2], newPictureName: values[3])
-            }
-            placesArray.append(name)
-        }
-        placesArray.sortInPlace()
-        filteredNames = placesArray
-        */
-        
     }
 
     
