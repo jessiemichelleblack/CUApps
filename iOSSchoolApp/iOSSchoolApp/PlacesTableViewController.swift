@@ -16,6 +16,7 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
     // Object variables
     var placesDict = [String : Place]() // Used as master store for all of the objects
     var placesArray = [String]() // Used as a master container for all of the place names
+    var imagesArray : [AnyObject] = []
     
     
     // Firebase Variables
@@ -48,110 +49,40 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
         return newImage
     }
     
-    func getImages(){
-        var imagesArray : [UIImage] = []
-        
-        let storageRef = storage.referenceForURL("gs://cuapp-5d360.appspot.com")
-
-        // ADEN HALL
-        let adenhall = storageRef.child("places/aden.png")
-        adenhall.dataWithMaxSize(1 * 300 * 300) { (data, error) -> Void in
-            if (error != nil) {
-                // an error occurred
-            } else {
-                let adenImage : UIImage! = UIImage(data: data!)
-                imagesArray.append(adenImage)
-            }
-        }
-        
-        // ANDREWS HALL
-        let andrewshall = storageRef.child("places/andrews.png")
-        andrewshall.dataWithMaxSize(1 * 300 * 300) { (data, error) -> Void in
-            if (error != nil) {
-                // an error occurred
-            } else {
-                let andrewImage : UIImage! = UIImage(data: data!)
-                imagesArray.append(andrewImage)
-            }
-        }
-        
-        // ARNETT HALL
-        let arnetthall = storageRef.child("places/arnett.png")
-        arnetthall.dataWithMaxSize(1 * 300 * 300) { (data, error) -> Void in
-            if (error != nil) {
-                // an error occurred
-            } else {
-                let arnettImage : UIImage! = UIImage(data: data!)
-                imagesArray.append(arnettImage)
-            }
-        }
-        
-        // ATLAS
-        let atlas = storageRef.child("places/atlas.png")
-        atlas.dataWithMaxSize(1 * 300 * 300) { (data, error) -> Void in
-            if (error != nil) {
-                // an error occurred
-            } else {
-                let atlasImage : UIImage! = UIImage(data: data!)
-                imagesArray.append(atlasImage)
-            }
-        }
-        
-        // BAKER HALL
-        let bakerhall = storageRef.child("places/baker.png")
-        bakerhall.dataWithMaxSize(1 * 300 * 300) { (data, error) -> Void in
-            if (error != nil) {
-                // an error occurred
-            } else {
-                let bakerImage : UIImage! = UIImage(data: data!)
-                imagesArray.append(bakerImage)
-            }
-        }
-        
-        // BALCH FIELDHOUSE
-        let balch = storageRef.child("places/balch.png")
-        balch.dataWithMaxSize(1 * 300 * 300) { (data, error) -> Void in
-            if (error != nil) {
-                // an error occurred
-            } else {
-                let balchImage : UIImage! = UIImage(data: data!)
-                imagesArray.append(balchImage)
-            }
-        }
-        
-        // BEARCREEK APARTMENTS
-        let bearcreek = storageRef.child("places/bearcreek.png")
-        bearcreek.dataWithMaxSize(1 * 300 * 300) { (data, error) -> Void in
-            if (error != nil) {
-                // an error occurred
-            } else {
-                let bearcreekImage : UIImage! = UIImage(data: data!)
-                imagesArray.append(bearcreekImage)
-            }
-        }
-        
-        // BENSON EARTH SCIENCES
-        let benson = storageRef.child("places/benson.png")
-        benson.dataWithMaxSize(1 * 300 * 300) { (data, error) -> Void in
-            if (error != nil) {
-                // an error occurred
-            } else {
-                let bensonImage : UIImage! = UIImage(data: data!)
-                imagesArray.append(bensonImage)
-            }
-        }
-        
-        // BOOKSTORE
-        let bookstore = storageRef.child("places/bookstore.png")
-        bookstore.dataWithMaxSize(1 * 300 * 300) { (data, error) -> Void in
-            if (error != nil) {
-                // an error occurred
-            } else {
-                let bookstoreImage : UIImage! = UIImage(data: data!)
-                imagesArray.append(bookstoreImage)
-            }
-        }
-    }
+//    func getImages(){
+//        
+//        
+////        let storageRef = storage.referenceForURL("gs://cuapp-5d360.appspot.com")
+//
+//        // ADEN HALL
+//        let adenhall = storageRef.child("places/aden.png")
+//        adenhall.dataWithMaxSize(1 * 300 * 300) { (data, error) -> Void in
+//            if (error != nil) {
+//                // an error occurred
+//            } else {
+//                let adenImage : UIImage! = UIImage(data: data!)
+//                self.imagesArray.append(adenImage)
+//            }
+//        }
+//
+//        
+//        
+//        
+//        
+//        
+//        // DEFAULT
+//        let defaultpic = storageRef.child("places/" +  + ".png")
+//        defaultpic.dataWithMaxSize(1 * 300 * 300) { (data, error) -> Void in
+//            if (error != nil) {
+//                // an error occurred
+//            } else {
+//                let defaultImage : UIImage! = UIImage(data: data!)
+//                self.imagesArray.append(defaultImage)
+//            }
+//        }
+//        
+//        print(imagesArray) //currently null
+//    }
     
     //-------------------
     // Configure Database
@@ -166,32 +97,80 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
     
     
     
+    //-----------
+    // Get Images
+    //-----------
+    func getImages(){
+        
+        let storageRef = storage.referenceForURL("gs://cuapp-5d360.appspot.com")
+        var defaultimage : UIImage?
+        
+        // Get Default Pic
+        let defaultPic = storageRef.child("places/default.png")
+        defaultPic.dataWithMaxSize(1 * 1000 * 1000) { (data, error) -> Void in
+            if (error != nil) {
+                print(error)
+            } else {
+                defaultimage = UIImage(data: data!)!
+            }
+        }
+        
+        // Get all images
+        for each in self.placesArray {
+            let placeObject = self.placesDict[each]
+            
+            if placeObject?.imageName == "default" {
+                self.placesDict[each]?.image = defaultimage
+               continue
+            } else {
+                let pic = storageRef.child("places/" + (placeObject?.imageName)! + ".png")
+                pic.dataWithMaxSize(1 * 300 * 300) { (data, error) -> Void in
+                    if (error != nil) {
+                        // an error occurred
+                    } else {
+                        let image = UIImage(data: data!)!
+                        self.placesDict[each]?.image = image
+                    }
+                }
+            }
+        }
+    }
+    
+    
+    
     //----------------
     // View Did Appear
     //----------------
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-
-        // Parse through data
         var tempDict = [String:AnyObject]()
-        tempDict = temp.value as! [String:AnyObject]
-        for (name, valueObject) in tempDict {
-            var values = valueObject as! [String]
+        
+        // Parse through data
+        if placesArray.isEmpty == true {
+            tempDict = temp.value as! [String:AnyObject]
+        
+            for (name, valueObject) in tempDict {
+                var values = valueObject as! [String]
             
-            if(values.count == 3){
-                placesDict[name] = Place(newname: name, newlat: values[0], newlong: values[1], newtype: values[2])
-            }
-            else if(values.count == 4){ //Needed in case the place has a picture name associated with it
-                placesDict[name] = Place(newname: name, newlat: values[0], newlong: values[1], newtype: values[2], newBuildingCode: values[3])
+                if(values.count == 4){
+                    placesDict[name] = Place(newimage: values[0], newname: name, newlat: values[1], newlong: values[2], newtype: values[3])
+                }
+                else if(values.count == 5){ //Needed in case the place has a picture name associated with it
+                    placesDict[name] = Place(newimage: values[0], newname: name, newlat: values[1], newlong: values[2], newtype: values[3], newBuildingCode: values[4])
+                }
+            
+                placesArray.append(name)
             }
             
-            placesArray.append(name)
+            placesArray.sortInPlace()
+            filteredNames = placesArray
+        
         }
-        placesArray.sortInPlace()
-        filteredNames = placesArray
-        // Reloads TableView
+        getImages()
         self.tableView.reloadData()
     }
+    
+    
     
     //-------------
     // viewDidLoad
@@ -201,7 +180,7 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
         
         configureDatabase()
         
-        
+
 
         
         
@@ -306,20 +285,21 @@ class PlacesTableViewController: UITableViewController, UISearchResultsUpdating,
 
         let place = filteredNames[indexPath.row]
         let placeObject = placesDict[place]
-    
+        
+        
+        // Get Images
+        var image : UIImage
+        if placeObject!.image != nil {
+            image = placeObject!.image!
+        } else {
+            image = UIImage(named: "default")!
+        }
         
         cell.textLabel?.text = place
         navigationController?.navigationBar.topItem?.title = "Places"
         
         cell.detailTextLabel?.text = placeObject?.buildingCode
         
-        
-        var image : UIImage
-
-        image = UIImage(named: "default")!
-        image = UIImage(named: placeObject!.name.lowercaseString)!
-
-
         let newImage = resizeImage(image, toTheSize: CGSizeMake(90, 90))
 //        let cellImageLayer: CALayer?  = cell.imageView!.layer
 //        cellImageLayer!.cornerRadius = cellImageLayer!.frame.size.width / 2
