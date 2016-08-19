@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.michaelswisher.schoolapp.FirstActivity"
+    android:background="@drawable/androidlaunch"
+    android:adjustViewBounds="true">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/linearLayout">
+
+
+        <ImageButton
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            android:layout_margin="10dp"
+            android:onClick="mapBtn"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent"
+            android:src="@drawable/icon1"
+            android:id="@+id/mapButton" />
+
+        <ImageButton
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/icon2"
+            android:scaleType="fitCenter"
+            android:onClick="d2lBtn"
+            android:background="@android:color/transparent"
+            android:id="@+id/d2lButton" />
+
+        <ImageButton
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/icon3"
+            android:scaleType="fitCenter"
+            android:onClick="moodleBtn"
+            android:background="@android:color/transparent"
+            android:id="@+id/moodleButton" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayout"
+        android:layout_centerHorizontal="true">
+
+        <ImageButton
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            android:src="@drawable/icon4"
+            android:background="@android:color/transparent"
+            android:scaleType="fitCenter"
+            android:layout_margin="10dp"
+            android:onClick="mycuinfoBtn"
+            android:id="@+id/mycuinfoButton" />
+
+        <ImageButton
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            android:src="@drawable/icon5"
+            android:background="@android:color/transparent"
+            android:scaleType="fitCenter"
+            android:layout_margin="10dp"
+            android:onClick="diningBtn"
+            android:id="@+id/diningButton" />
+
+        <ImageButton
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            android:src="@drawable/icon6"
+            android:background="@android:color/transparent"
+            android:scaleType="fitCenter"
+            android:layout_margin="10dp"
+            android:onClick="parkBtn"
+            android:id="@+id/parkingButton" />
+    </LinearLayout>
+
+</RelativeLayout>

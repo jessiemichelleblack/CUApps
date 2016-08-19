@@ -13,11 +13,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        android:theme="@style/Theme.AppCompat.NoActionBar">
+        <activity android:name=".LaunchActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -40,7 +38,11 @@
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
-        <activity android:name=".WebPortal"></activity>
+        <activity android:name=".WebPortal" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".FirstActivity"
+            android:theme="@style/Theme.AppCompat"
+            android:label="University of Colorado Boulder"></activity>
     </application>
 
 </manifest>

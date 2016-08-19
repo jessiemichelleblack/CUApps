@@ -1,10 +1,10 @@
 package com.example.michaelswisher.schoolapp;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -49,10 +49,11 @@ public class PlacesAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View rowView = inflater.inflate(R.layout.places_row, parent, false);
+        rowView.setBackgroundColor(Color.WHITE);
         TextView textView = (TextView) rowView.findViewById(R.id.label);
         ImageView imageView = (ImageView) rowView.findViewById(R.id.icon);
         textView.setText((String)placeNames.get(position));
-        imageView.setImageResource(R.drawable.ic_launcher);
+
         // Change the icon for Windows and iPhone
         /*
         String s = values[position];

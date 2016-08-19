@@ -2,8 +2,8 @@ package com.example.michaelswisher.schoolapp;
 
 import android.content.Intent;
 import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.view.View;
 import android.widget.AdapterView;
@@ -19,7 +19,6 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class PlacesList extends AppCompatActivity {
 
@@ -32,7 +31,6 @@ public class PlacesList extends AppCompatActivity {
 
     HashMap placesContainer = new HashMap();
 
-    PlacesAdapter placesAdapter;
 
 
     @Override
@@ -42,8 +40,8 @@ public class PlacesList extends AppCompatActivity {
 
         listview = (ListView) findViewById(R.id.placesList);
         searchview = (SearchView) findViewById(R.id.placesSearch);
-        placesAdapter = new PlacesAdapter(this, placesContainer);
-        listview.setAdapter(placesAdapter);
+        adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, placesList);
+        listview.setAdapter(adapter);
     }
 
     @Override protected void onResume(){
@@ -57,7 +55,7 @@ public class PlacesList extends AppCompatActivity {
                     ArrayList<String> placeValues = (ArrayList<String>) messageSnapshot.getValue();
                     placesContainer.put(placeName, placeValues);
                 }
-                placesAdapter.notifyDataSetChanged();
+                adapter.notifyDataSetChanged();
             }
 
             @Override
