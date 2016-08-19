@@ -32,6 +32,7 @@ public class PlacesList extends AppCompatActivity {
 
     HashMap placesContainer = new HashMap();
 
+    PlacesAdapter placesAdapter;
 
 
     @Override
@@ -41,8 +42,8 @@ public class PlacesList extends AppCompatActivity {
 
         listview = (ListView) findViewById(R.id.placesList);
         searchview = (SearchView) findViewById(R.id.placesSearch);
-        adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, placesList);
-        listview.setAdapter(adapter);
+        placesAdapter = new PlacesAdapter(this, placesContainer);
+        listview.setAdapter(placesAdapter);
     }
 
     @Override protected void onResume(){
@@ -56,7 +57,7 @@ public class PlacesList extends AppCompatActivity {
                     ArrayList<String> placeValues = (ArrayList<String>) messageSnapshot.getValue();
                     placesContainer.put(placeName, placeValues);
                 }
-                adapter.notifyDataSetChanged();
+                placesAdapter.notifyDataSetChanged();
             }
 
             @Override
