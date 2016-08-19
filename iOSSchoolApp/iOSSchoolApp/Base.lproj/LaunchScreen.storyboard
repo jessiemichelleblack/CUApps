@@ -27,17 +27,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="b2W-9A-MF8" firstAttribute="centerX" secondItem="vw0-VM-T1D" secondAttribute="centerX" id="1Zz-PR-l0R"/>
-                            <constraint firstItem="vw0-VM-T1D" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" constant="-31" id="Ba5-Ly-Uby"/>
-                            <constraint firstItem="b2W-9A-MF8" firstAttribute="trailing" secondItem="vw0-VM-T1D" secondAttribute="trailing" constant="-1" id="BuR-DK-eKb"/>
-                            <constraint firstItem="b2W-9A-MF8" firstAttribute="bottom" secondItem="xb3-aO-Qok" secondAttribute="top" id="Iwk-Dk-iNt"/>
-                            <constraint firstAttribute="trailing" secondItem="vw0-VM-T1D" secondAttribute="trailing" constant="-1" id="TPF-Ie-Dk4"/>
-                            <constraint firstItem="vw0-VM-T1D" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" constant="-31" id="VAm-ou-FFV"/>
-                            <constraint firstItem="vw0-VM-T1D" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="topMargin" id="bfp-FR-f3g"/>
-                            <constraint firstItem="b2W-9A-MF8" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="topMargin" constant="-7" id="hb4-I3-sL1"/>
-                            <constraint firstItem="b2W-9A-MF8" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="mOr-Dt-tbU"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="vw0-VM-T1D" secondAttribute="bottom" constant="416" id="pIb-bz-SSn"/>
-                            <constraint firstItem="vw0-VM-T1D" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" constant="-31" id="yf4-bJ-x3V"/>
+                            <constraint firstItem="b2W-9A-MF8" firstAttribute="bottom" secondItem="xb3-aO-Qok" secondAttribute="top" id="7uR-mT-DD5"/>
+                            <constraint firstItem="vw0-VM-T1D" firstAttribute="leading" secondItem="b2W-9A-MF8" secondAttribute="leading" id="DpP-yY-4D2"/>
+                            <constraint firstItem="vw0-VM-T1D" firstAttribute="centerX" secondItem="b2W-9A-MF8" secondAttribute="centerX" id="FfD-tG-CT4"/>
+                            <constraint firstItem="vw0-VM-T1D" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" constant="-31" id="I7x-vg-Pct"/>
+                            <constraint firstItem="b2W-9A-MF8" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="topMargin" constant="-7" id="IKY-AJ-c9j"/>
+                            <constraint firstAttribute="trailing" secondItem="b2W-9A-MF8" secondAttribute="trailing" id="Px2-UW-3xn"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="vw0-VM-T1D" secondAttribute="bottom" constant="416" id="ZgF-Yu-7Ew"/>
+                            <constraint firstItem="b2W-9A-MF8" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="drO-ox-K5S"/>
                         </constraints>
                     </view>
                 </viewController>
